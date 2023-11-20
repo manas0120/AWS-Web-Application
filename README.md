@@ -50,3 +50,46 @@ B. Compute - Amazon EC2
 EC2 Architecture - Auto Scaling Group to deploy web service instances to private subnets in VPC that we created earlier in this network lab. This configures the highly available web services so that external users can access the Sample Web Page through the web.
 
    <img width="554" alt="EC2 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/05c12a41-1634-4b3c-a2c8-577a1306d72e">
+
+The following hands-on are to be done -:
+Launch web server instances and execute user data 
+Set up a security group 
+Create a custom Amazon Machine Image (AMI) 
+Launch an Application Load Balancer (ALB) 
+Configure a Launch Template 
+Configure an Auto Scaling Group 
+Test auto scaling and change manual settings
+
+a. Launch instance and connect to web service -
+
+In the AWS console search bar, type EC2  and select it. Then click EC2 Dashboard at the top of the left menu. Press the Launch instance button and select Launch instance from the menu.  
+In Name, put the value Web server for custom AMI. And check the default setting in Amazon Machine Image below. 
+Select t2.micro in Instance Type.  
+For Key pair, choose Proceed without a key pair.  
+Click the Edit button in Network settings to set the space where EC2 will be located. 
+And choose the VPC-Lab-vpc created in the previous lab, and for the subnet, choose public subnet. Auto-assign public IP is set to Enable. 
+
+b. Create Security groups - to act as a network firewall. Security groups will specify the protocols and addresses you want to allow in your firewall policy. 
+
+For the security group you are currently creating, this is the rule that applies to the EC2 that will be created. After entering Multi-Tier in Security group name and Description, select Add Security group rule and set HTTP to Type. Also allow TCP/80 for Web Service by specifying it. Select My IP in the source. 
+All other values accept the default values, expand by clicking on the Advanced Details tab at the bottom of the screen. 
+Click the Meta Data version dropdown and select V2 only (token required) 
+Wait for the instance's Instance state result to be Running. Open a new web browser tab and enter the Public DNS or IPv4 Public IP of your EC2 instance in the URL address field. If the page is displayed as shown below, the web server instance is configured normally. 
+
+c. Create a custom AMI - 
+
+In the EC2 console, select the instance that we made earlier in this lab, and click Actions > Image and templates > Create Image. 
+In the Create Image console, type as shown below and press Create image to create the custom image.   
+Verify in the console that the image creation request in completed.  
+In the left navigation panel, Click the AMIs button located under IMAGES. You can see that the Status of the AMI that you just created. It will show either Pending or Available. 
+
+d. Terminate the instance 
+
+Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, we will use custom AMI to create a new web server.) 
+  
+
+NOTE - Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, we will use custom AMI to create a new web server.)
+
+Architecture Configured till now - 
+
+<img width="626" alt="Ec2 Architecture with IG" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/2db11c8c-50d6-48bf-8aad-52f7601783c1">
