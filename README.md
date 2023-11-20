@@ -1,4 +1,4 @@
-# Highly-Available-Multi-Tier-Web-Application
+# Highly-Availabl, Fault toilerant, Multi-Tier Web-Application
 Specifically, we will walk through the following topics`:
 1. Network – Amazon VPC
 2. Compute – Amazon EC2
