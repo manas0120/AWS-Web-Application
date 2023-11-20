@@ -93,3 +93,20 @@ NOTE - Custom AMI (Golden Image) creation has been completed for the auto scalin
 Architecture Configured till now - 
 
 <img width="626" alt="Ec2 Architecture with IG" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/2db11c8c-50d6-48bf-8aad-52f7601783c1">
+
+e. Lauch Application Load Balancer 
+
+Using the network infrastructure created in the Network- Amazon VPC lab, we will deploy a web service that can automatically scale out/in under load and ensure high availability. We use the web server AMI created in the previous chapter and the network infrastructure named VPC-Lab. 
+
+f. Configure Application Load Balancer 
+
+AWS Elastic Load Balancer supports three types of load balancers: Application Load Balancer, Network Load Balancer, and Classic Load Balancer. In this lab, you will configure and set up the Application Load Balancer to handle load balancing HTTP requests. 
+From the EC2 Management Console in the left navigation panel, click Load Balancers under Load Balancing. Then click Create Load Balancer. In the Select load balancer type, click the Create button under Application Load Balancer.
+Name the load balancer. In this case, name Name as Web-ALB. Leave the other settings at their default values. 
+Scrolling down a little bit, there is a section for selecting availability zones. First, Select the VPC-Lab-vpc created previously. For Availability Zones select the 2 public subnets that were created previously. This should be Public Subnet for ap-northeast-2a and Public Subnet C for us-east-1c. 
+In the Security groups section, click the Create new security group hyperlink. Enter web-ALB-SG as the security group name and check the VPC information. Click the Add rule button and select HTTP as the Type and Anywhere-IPv4 as the Source. And create a security group. 
+Return to the load balancer page again, click the refresh button, and select the web-ALB-SG you just created. Remove the default security group. 
+In Listeners and routing column, click Create target group. Put Web-TG for Target group name and check all settings same with the screen below. After that click Next button. 
+This is where we would register our instances. However, as we mentioned earlier, there are not instances to register at this moment. Click Create target group. 
+Again, move into the Load balancers page, click refresh button and select Web-TG. And then Click Create load balancer. 
+
