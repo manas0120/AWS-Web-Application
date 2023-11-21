@@ -200,7 +200,13 @@ ix. If you use the ALB DNS that you copied earlier to access and refresh the web
 </pre>
 
 <pre>
-<h3> DATABASE - AMAZON AURORA</h3>
+<h3>C. DATABASE - AMAZON AURORA</h3>
  Among the many database options available on AWS, Amazon RDS(Relational Database Service) is a cloud-based database service that is easy to configure and operate and easy to scale. Amazon RDS is cost-effective, easy to adjust capacity, and reduces time-consuming management tasks, allowing users to focus more on their business and applications.
- 
+
+ In this database lab, we will deploy RDS Aurora instance in VPC-Lab and configure the web service(Apache + PHP) in Auto Scaling Group to use RDS Aurora(MySQL). When the connection to the database is completed, create a new version of the existing custom AMI and update the Auto Scaling Group to use the new version of AMI. In addtion, we conduct a test to add/modify/delete contacts in a simple address book stored in RDS' DB through the web browser.
+
+ <h3>Architecture - </h3>
+
+ <img width="347" alt="Aurora Db Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8264335c-badc-443f-8362-44575560b6e4">
+
 </pre>
