@@ -405,4 +405,31 @@ and immersionday in key/value section. If they were not,
 click Add button, fill out the value and click save button.</li>
 </ol>
 </h4>
+
+<h3>Access RDS from EC2</h3>
+ <h4>Note: Now that you have created a secret, you must give 
+ your web server permission to use it. To do this, we will 
+ create a Policy that allows the web server to read a secret. 
+ We will add this policy to the Role you previously assigned 
+ to the web server.</h4>
+
+<h3> Allow the web service to access the Internet</h3>
+<ol>
+ <li>Sign in to the AWS Management Console and open the IAM console. 
+  In the navigation pane, choose Policies, and then choose Create Policy.</li>
+<li>Choose the service. Type Secret Manager into the search box. Click Secret manager.</li>
+<li>Under Access Level, Click on the carat next to read anf then check the box by GetSecretValue</li>
+<li>Click on the carat next to the resource. For this Lab, Sselect all Resources. Click Next: Tags.
+(NOTE: For the lab, we're allowing EC2 to access all secrets. 
+With a real workload, you should consider allowing access to specific secrets.)</li>
+<li>Click Next: Review. On the Review Policy screen, give your 
+ new policy the name ReadSecrets. Click Create policy. </li>
+<li>In the navigation pane, choose Roles and type SSMInstanceProfile 
+into the search box. This is the role you created previously 
+in Connect to your Linux instance using Session Manager. 
+Click SSMInstanceProfile.</li>
+<li>Under Permission Policies, Attach Policies</li>
+<li></li>
+
+</ol>
 </pre>
