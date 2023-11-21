@@ -60,8 +60,7 @@ NOTE:- VPC endpoints are communications within the AWS network and have the secu
 B. Compute - Amazon EC2 </b></h3>
    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
 
-
-<h4><b>EC2 Architecture - </b></h4>Auto Scaling Group to deploy web service instances to private subnets in VPC that we created earlier in this network lab. This configures the highly available web services so that external users can access the Sample Web Page through the web.
+<h3><b>EC2 Architecture - </b></h3>Auto Scaling Group to deploy web service instances to private subnets in VPC that we created earlier in this network lab. This configures the highly available web services so that external users can access the Sample Web Page through the web.
 
    <img width="554" alt="EC2 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/05c12a41-1634-4b3c-a2c8-577a1306d72e">
 
@@ -111,11 +110,11 @@ Architecture Configured till now -
 
 <img width="626" alt="Ec2 Architecture with IG" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/2db11c8c-50d6-48bf-8aad-52f7601783c1">
 
-e. Lauch Application Load Balancer 
+<h3>e. Lauch Application Load Balancer </h3>
 
 Using the network infrastructure created in the Network- Amazon VPC lab, we will deploy a web service that can automatically scale out/in under load and ensure high availability. We use the web server AMI created in the previous chapter and the network infrastructure named VPC-Lab. 
 
-f. Configure Application Load Balancer 
+<h3>f. Configure Application Load Balancer </h3>
 
 AWS Elastic Load Balancer supports three types of load balancers: Application Load Balancer, Network Load Balancer, and Classic Load Balancer. In this lab, you will configure and set up the Application Load Balancer to handle load balancing HTTP requests. 
 From the EC2 Management Console in the left navigation panel, click Load Balancers under Load Balancing. Then click Create Load Balancer. In the Select load balancer type, click the Create button under Application Load Balancer.
@@ -127,7 +126,7 @@ In Listeners and routing column, click Create target group. Put Web-TG for Targe
 This is where we would register our instances. However, as we mentioned earlier, there are not instances to register at this moment. Click Create target group. 
 Again, move into the Load balancers page, click refresh button and select Web-TG. And then Click Create load balancer. 
 
-g. Configure Launch Template 
+<h3>g. Configure Launch Template </h3>
 
 Now that ALB has been created, it's time to place the instances behind the load balancer. To configure an Amazon EC2 instance to start with Auto Scaling Group, you can use Launch Template, Launch Configuration, or EC2 Instance. In this workshop, we will use the Launch Template to create an Auto Scaling group. 
 
@@ -135,12 +134,12 @@ The launch template configures all parameters within a resource at once, reducin
 
 The launch template contains information that Amazon EC2 needs to start an instance, such as AMI and instance type. The Auto Scaling group refers to this and adds new instances when a scaling out event occurs. If you need to change the configuration of the EC2 instance to start in the Auto Scaling group, you can create a new version of the launch template and assign it to the Auto Scaling group. You can also select a specific version of the launch template that you use to start an EC2 instance in the Auto Scaling group, if necessary. You can change this setting at any time. 
 
-h. Create Security Groups
+<h3>h. Create Security Groups</h3>
 Select Security Groups under the Network & Security heading and click Create Security Group in the upper right corner.
 modify the Inbound rules. First, select the Add rule button to add the Inbound rules, and select HTTP in the Type. For Source, type ALB in the search bar to search for the security group created earlier Web-ALB-SG. This will configure the security group to only receive HTTP traffic coming from ALB.
 Leave outbound rules' default settings and click Create Security Group to create a new security group. This creates a security group that allows traffic only for HTTP connections (TCP 80) that enter the instance via ALB from the Internet.
 
-i. Create Launch Template
+<h3>i. Create Launch Template</h3>
 In the EC2 console, select Launch Templates from the left navigation panel. Then click Create Launch Template.
 
 First, set Launch template name and Template version description as shown below, and select Checkbox for Provide guidance in Auto Scaling guidance. Select this checkbox to enable the template you create to be utilized by Amazon EC2 Auto Scaling.
@@ -153,7 +152,7 @@ Follow the Storage's default values without any additional change. Go down and d
 
 Finally, in the Advanced details tab, set the IAM instance profile to SSMInstanceProfile. Leave all other settings as default, and click the Create launch template button at the bottom right to create a launch template.
 
-j. Set Auto Scaling Group.
+<h3>j. Set Auto Scaling Group</h3>
 Enter the EC2 console and select Auto Scaling Groups at the bottom of the left navigation panel. Then click the Create Auto Scaling group button to create an Auto Scaling Group.
 In [Step 1: Choose launch template or configuration], specify the name of the Auto Scaling group. In this workshop, we will designate it as Web-ASG. Then select the launch template that you just created named Web. The default settings for the launch template will be displayed. Confirm and click the lower right Next button.
 Set the network configuration with the Purging options and instance types as default. Choose VPC-Lab-vpc for VPC, select Private subnet 1 and Private subnet 2 for Subnets. When the setup is completed, click the Next button.
