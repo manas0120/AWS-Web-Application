@@ -345,12 +345,12 @@ Following Hands-on for Database Section -
 <li>When settings are completed, click Create Security Group at the bottom of the list to create this security group.</li>
 </ol>
 
- <h3>2. Create RDS Instance 
-  Create an instance of RDS Aurora (MySQL compatible).</h3>
+ <h3>2. Create RDS Instance </h3>
+        <h4>Create an instance of RDS Aurora (MySQL compatible).</h4>
 <ol style="list-style-type:lower-alpha">
- <li>In the AWS Management console, go to the RDS (Relational Database Service)</li>
- <li>Select Create Database in dashboard to start creating a RDS instance.</li>
- <li> select the RDS instances' database engine. In Amazon RDS, you can select the database engine based on open source or commercial database engine. In this lab, we will use Amazon Aurora with MySQL-compliant database engine. Select Standard Create in the choose a database creation method section. Set Engine type to Amazon Aurora, Set Edition to Amazon Aurora with MySQL compatibility, Set Capacity type to Provisioned and Version to Aurora (MySQL 5.7) 2.10.2.></li>
+<li>In the AWS Management console, go to the RDS (Relational Database Service)</li>
+<li>Select Create Database in dashboard to start creating a RDS instance.</li>
+<li>Select the RDS instances' database engine. In Amazon RDS, you can select the database engine based on open source or commercial database engine. In this lab, we will use Amazon Aurora with MySQL-compliant database engine. Select Standard Create in the choose a database creation method section. Set Engine type to Amazon Aurora, Set Edition to Amazon Aurora with MySQL compatibility, Set Capacity type to Provisioned and Version to Aurora (MySQL 5.7) 2.10.2.></li>
 <li>Select Production in Template. Under Settings, we want to specify administrator information for identifying the RDS instances. Enter the information as it appears below.</li>
 <li>Under DB instance size select Memory Optimized class. Under Availability & durability select Create an Aurora Replica or reader node in a different AZ. Select db.r5.large for instance type.</li>
 <li>Set up network and security on the Connectivity page. Select the VPC-Lab that you created earlier in the Virtual private cloud (VPC) and specify the subnet that the RDS instance will be placed in, public access, and security groups. Enter the information as it appears below.</li>
