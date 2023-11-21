@@ -198,3 +198,9 @@ viii. When you click on the Instance management tab, you can see that two additi
 
 ix. If you use the ALB DNS that you copied earlier to access and refresh the web page, you can see that it is hosting the web page in two instances that were not there before. The current CPU load is 0% because it is a new instance. It can also be seen that each of them was created in a different availability zone. If it's not 0%, it can look more than 100% because it's a constant load situation.
 </pre>
+
+<pre>
+<h3> DATABASE - AMAZON AURORA</h3>
+ Among the many database options available on AWS, Amazon RDS(Relational Database Service) is a cloud-based database service that is easy to configure and operate and easy to scale. Amazon RDS is cost-effective, easy to adjust capacity, and reduces time-consuming management tasks, allowing users to focus more on their business and applications.
+ 
+</pre>
