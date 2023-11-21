@@ -429,7 +429,19 @@ into the search box. This is the role you created previously
 in Connect to your Linux instance using Session Manager. 
 Click SSMInstanceProfile.</li>
 <li>Under Permission Policies, Attach Policies</li>
-<li></li>
-
+<li>Search for the policy you created called ReadSecrets. 
+Check the box and click Attach policy.</li>
+<li>Under Permissions policies, verify that AmazonSSMManagedInstanceCore
+and ReadSecrets are both listed.</li>
 </ol>
+
+ <h3> Try Address Book</h3>
+ <ol>
+ <li>Access the [EC2 Console] (https://console.aws.amazon.com/ec2/v2/home?instanceState=running ) 
+ window and click load balancer. After copying the DNS name of the load balancer 
+ created in the compute lab, open a new tab in your browser and paste it.</li>
+<li>After connecting to the web server, go to the RDS tab.</li>
+  
+<li>Now you can check the data in the database you created.</li>
+ </ol>
 </pre>
