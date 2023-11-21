@@ -382,14 +382,15 @@ Following Hands-on for Database Section -
   use the RDS on the EC2 Web Server.</h4>
 
 <h3>Storing RDS Credentials in AWS Secrets Manager</h3>
-<h4>The web server we built includes sample code for our address book. 
- In this lab, you specify which database to use in the sample code and how to connect it. 
- We will store that information in AWS Secrets Manager.</h4>
+<h4>
+The web server we built includes sample code for our address book. 
+In this lab, you specify which database to use in the sample code and how to connect it. 
+We will store that information in AWS Secrets Manager.</h4>
 
 <h4>
 We will create a secret containing data connection information. Later, we will give the web server the appropriate permission to retrieve the secret.
 <ol style="list-style-type:lower-alpha">
- <li>In the console window, open AWS Secrets Manager (https://console.aws.amazon.com/secretsmanager/ ) and
+<li>In the console window, open AWS Secrets Manager (https://console.aws.amazon.com/secretsmanager/ ) and
 click the Store a new secret button.</li>
 <li>Under Secret Type, choose Credentials for Amazon RDS database. 
 Write down the user name and password you entered when creating the database. And under Database select the database you just created. 
