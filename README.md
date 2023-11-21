@@ -21,8 +21,8 @@ Network Architecture -
 </pre>
 
 
-<p>
-1.) Create  VPC - Amazon Virtual Private Cloud (Amazon VPC) allows you to start AWS resources with a user-defined virtual network. This virtual network, along with the benefits of using AWS's scalable infrastructure, is very similar to the existing network operating in the customer's own data center. 
+<b>
+1.) Create  VPC - </b>Amazon Virtual Private Cloud (Amazon VPC) allows you to start AWS resources with a user-defined virtual network. This virtual network, along with the benefits of using AWS's scalable infrastructure, is very similar to the existing network operating in the customer's own data center. 
 
 a. After logging in to the AWS console, select VPC from the service menu. 
 
@@ -38,7 +38,8 @@ As the VPC is created, you can see the process of creating network-related resou
 
 You can check the information of the created VPC. Check related information such as CIDR value, route table, network ACL, etc. Check that the values you just set are correct. 
 
-2.) Create VPC Endpoint - In this section, you create an endpoint for S3 to learn a VPC endpoint. 
+<b>
+2.) Create VPC Endpoint - </b>In this section, you create an endpoint for S3 to learn a VPC endpoint. 
 
 In VPC Dashboard, select Endpoints. Click Create endpoint button. 
 
