@@ -91,19 +91,21 @@ All other values accept the default values, expand by clicking on the Advanced D
 Click the Meta Data version dropdown and select V2 only (token required) 
 Wait for the instance's Instance state result to be Running. Open a new web browser tab and enter the Public DNS or IPv4 Public IP of your EC2 instance in the URL address field. If the page is displayed as shown below, the web server instance is configured normally. 
 
-c. Create a custom AMI - 
+<h4><b>c. Create a custom AMI - </b></h4>
 
 In the EC2 console, select the instance that we made earlier in this lab, and click Actions > Image and templates > Create Image. 
 In the Create Image console, type as shown below and press Create image to create the custom image.   
 Verify in the console that the image creation request in completed.  
 In the left navigation panel, Click the AMIs button located under IMAGES. You can see that the Status of the AMI that you just created. It will show either Pending or Available. 
 
-d. Terminate the instance 
+<h4><b>d. Terminate the instance </b></h4>
 
 Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, we will use custom AMI to create a new web server.) 
   
 
 NOTE - Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, we will use custom AMI to create a new web server.)
+
+<h3>Reference to Golden AMI - https://medium.com/@chiragdarji/aws-golden-ami-e85a24f15f9c</h3>
 
 Architecture Configured till now - 
 
