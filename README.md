@@ -319,7 +319,7 @@ ix. If you use the ALB DNS that you copied earlier to access and refresh the web
  <img width="347" alt="Aurora Db Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8264335c-badc-443f-8362-44575560b6e4">
 
  <h4>
-Order for Database Section - 
+Following Hands-on for Database Section - 
 1. Create VPC security group
 2. Create RDS instance
 3. Connect RDS with Web App server
@@ -328,7 +328,7 @@ Order for Database Section -
 6. (option) Connect RDS Aurora
  </h4>
 
- <h4>Create VPC Security group
+ <h4>1. Create VPC Security group
  NOTE- The RDS service uses the same security model as EC2. The most common usage format is to provide data as 
   a database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure
   it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied 
@@ -341,8 +341,26 @@ Order for Database Section -
  <ol>
 <li> On the left side of the VPC dashboard, select Security Groups and then select Create Security Group.</li>
 <li>Enter Security group name and Description as shown below. Choose the VPC that was created in the first lab. It should be named VPC-Lab.</li>
+<li>Scroll down to the Inbound rules column. Click Add rule to create a security group policy that allows access to RDS from the EC2 Web servers that you previously created through the Auto Scaling Group. Under Type, select MySQL/Aurora The port range should default to 3306. The protocol and port ranges are automatically specified. The Source type entry can specify the IP band (CIDR) that you want to allow acces to, or other security groups that the EC2 instances to access are already using. Select the security group(named ASG-Web-Inst-SG ) that is applied to the web instances of the Auto Scaling group in the Compute - Amazon EC2</li>
+<li>When settings are completed, click Create Security Group at the bottom of the list to create this security group.</li>
+</ol>
 
+ <h3>2. Create RDS Instance 
+  Create an instance of RDS Aurora (MySQL compatible).</h3>
+<ol style="list-style-type:lower-alpha">
+ <li>In the AWS Management console, go to the RDS (Relational Database Service)</li>
+ <li>Select Create Database in dashboard to start creating a RDS instance.</li>
+ <li select the RDS instances' database engine. In Amazon RDS, you can select the database engine based on open source or commercial database engine. In this lab, we will use Amazon Aurora with MySQL-compliant database engine. Select Standard Create in the choose a database creation method section. Set Engine type to Amazon Aurora, Set Edition to Amazon Aurora with MySQL compatibility, Set Capacity type to Provisioned and Version to Aurora (MySQL 5.7) 2.10.2.></li>
+<li>Select Production in Template. Under Settings, we want to specify administrator information for identifying the RDS instances. Enter the information as it appears below.</li>
+<li>Under DB instance size select Memory Optimized class. Under Availability & durability select Create an Aurora Replica or reader node in a different AZ. Select db.r5.large for instance type.</li>
+<li>Set up network and security on the Connectivity page. Select the VPC-Lab that you created earlier in the Virtual private cloud (VPC) and specify the subnet that the RDS instance will be placed in, public access, and security groups. Enter the information as it appears below.</li>
+<li>Scroll down and click Additional configuration. Set database options as shown below. Be aware of the uppercase and lowercase letters of Initial database name.</li>
+<li>Subsequent items such as Backup, Entry, Backtrack, Monitoring, and Log exports all accept the default values, and press Create database to create a database.</li>
+<li>A new RDS instance is now creating. This may take more than 5 minutes. You can use an RDS instance when the DB instance's status changed to</li>
+</ol>
 
- </ol>
+<h4><b>Services Configured so far </b></h4>
+<img width="521" alt="DB arch configured" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d279ffda-dc6d-43ce-a33f-b7758bc85ace">
+
  
 </pre>
