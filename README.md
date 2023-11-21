@@ -61,20 +61,21 @@ B. Compute - Amazon EC2 </b></h3>
    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
 
 
-EC2 Architecture - Auto Scaling Group to deploy web service instances to private subnets in VPC that we created earlier in this network lab. This configures the highly available web services so that external users can access the Sample Web Page through the web.
+<h4><b>EC2 Architecture - </b></h4>Auto Scaling Group to deploy web service instances to private subnets in VPC that we created earlier in this network lab. This configures the highly available web services so that external users can access the Sample Web Page through the web.
 
    <img width="554" alt="EC2 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/05c12a41-1634-4b3c-a2c8-577a1306d72e">
 
-The following hands-on are to be done -:
+<h5><b>The following hands-on are to be done -:
 Launch web server instances and execute user data 
 Set up a security group 
 Create a custom Amazon Machine Image (AMI) 
 Launch an Application Load Balancer (ALB) 
 Configure a Launch Template 
 Configure an Auto Scaling Group 
-Test auto scaling and change manual settings
+Test auto scaling and change manual settings</b></h5>
 
-a. Launch instance and connect to web service -
+<h4><b>
+a. Launch instance and connect to web service - </b></h4>
 
 In the AWS console search bar, type EC2  and select it. Then click EC2 Dashboard at the top of the left menu. Press the Launch instance button and select Launch instance from the menu.  
 In Name, put the value Web server for custom AMI. And check the default setting in Amazon Machine Image below. 
@@ -83,7 +84,7 @@ For Key pair, choose Proceed without a key pair.
 Click the Edit button in Network settings to set the space where EC2 will be located. 
 And choose the VPC-Lab-vpc created in the previous lab, and for the subnet, choose public subnet. Auto-assign public IP is set to Enable. 
 
-b. Create Security groups - to act as a network firewall. Security groups will specify the protocols and addresses you want to allow in your firewall policy. 
+<h4><b>b. Create Security groups - </b></h4>To act as a network firewall. Security groups will specify the protocols and addresses you want to allow in your firewall policy. 
 
 For the security group you are currently creating, this is the rule that applies to the EC2 that will be created. After entering Multi-Tier in Security group name and Description, select Add Security group rule and set HTTP to Type. Also allow TCP/80 for Web Service by specifying it. Select My IP in the source. 
 All other values accept the default values, expand by clicking on the Advanced Details tab at the bottom of the screen. 
