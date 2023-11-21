@@ -350,13 +350,26 @@ Following Hands-on for Database Section -
 <ol style="list-style-type:lower-alpha">
 <li>In the AWS Management console, go to the RDS (Relational Database Service)</li>
 <li>Select Create Database in dashboard to start creating a RDS instance.</li>
-<li>Select the RDS instances' database engine. In Amazon RDS, you can select the database engine based on open source or commercial database engine. In this lab, we will use Amazon Aurora with MySQL-compliant database engine. Select Standard Create in the choose a database creation method section. Set Engine type to Amazon Aurora, Set Edition to Amazon Aurora with MySQL compatibility, Set Capacity type to Provisioned and Version to Aurora (MySQL 5.7) 2.10.2.></li>
-<li>Select Production in Template. Under Settings, we want to specify administrator information for identifying the RDS instances. Enter the information as it appears below.</li>
-<li>Under DB instance size select Memory Optimized class. Under Availability & durability select Create an Aurora Replica or reader node in a different AZ. Select db.r5.large for instance type.</li>
-<li>Set up network and security on the Connectivity page. Select the VPC-Lab that you created earlier in the Virtual private cloud (VPC) and specify the subnet that the RDS instance will be placed in, public access, and security groups. Enter the information as it appears below.</li>
-<li>Scroll down and click Additional configuration. Set database options as shown below. Be aware of the uppercase and lowercase letters of Initial database name.</li>
-<li>Subsequent items such as Backup, Entry, Backtrack, Monitoring, and Log exports all accept the default values, and press Create database to create a database.</li>
-<li>A new RDS instance is now creating. This may take more than 5 minutes. You can use an RDS instance when the DB instance's status changed to</li>
+<li>Select the RDS instances' database engine. In Amazon RDS, you can select the 
+ database engine based on open source or commercial database engine. 
+ In this lab, we will use Amazon Aurora with MySQL-compliant database engine. 
+ Select Standard Create in the choose a database creation method section. 
+ Set Engine type to Amazon Aurora, Set Edition to Amazon Aurora with MySQL compatibility, 
+ Set Capacity type to Provisioned and Version to Aurora (MySQL 5.7) 2.10.2.></li>
+<li>Select Production in Template. Under Settings, we want to specify administrator 
+ information for identifying the RDS instances. Enter the information as it appears below.</li>
+<li>Under DB instance size select Memory Optimized class. Under Availability & durability 
+ select Create an Aurora Replica or reader node in a different AZ. Select db.r5.large for instance type.</li>
+<li>Set up network and security on the Connectivity page. Select the VPC-Lab that 
+ you created earlier in the Virtual private cloud (VPC) and specify the subnet that 
+ the RDS instance will be placed in, public access, and security groups. 
+ Enter the information as it appears below.</li>
+<li>Scroll down and click Additional configuration. Set database options as shown below. 
+ Be aware of the uppercase and lowercase letters of Initial database name.</li>
+<li>Subsequent items such as Backup, Entry, Backtrack, Monitoring, and Log exports all 
+ accept the default values, and press Create database to create a database.</li>
+<li>A new RDS instance is now creating. This may take more than 5 minutes. 
+ You can use an RDS instance when the DB instance's status changed to</li>
 </ol>
 
 <h4><b>Services Configured so far </b></h4>
