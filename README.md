@@ -153,3 +153,7 @@ Auto Scaling group has been created.
  High available and automatically scales Load Architecture
 
  <img width="626" alt="HA Load Balancing arch" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/5681516e-194f-49a1-abed-a9f06ba56ec2">
+
+ 
+<h1> CHECK WEB SERVICE AND TEST </h1>
+
