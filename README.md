@@ -55,7 +55,9 @@ Choose a route table to reflect the endpoint. Select the two private subnets as 
 NOTE:- VPC endpoints are communications within the AWS network and have the security and compliance advantage of being able to control traffic through the endpoints. You can also optimize the data processing cost if you transfer your data through a VPC endpoint rather than a NAT gateway. 
 
 </p>
+</pre>
 
+<pre>
 <h3><b>
 B. Compute - Amazon EC2 </b></h3>
    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
@@ -173,4 +175,4 @@ Auto Scaling group has been created.
 
  
 <h1> CHECK WEB SERVICE AND TEST </h1>
-
+</pre>
