@@ -23,8 +23,8 @@ Network Architecture - </b></h3>
 </pre>
 
 
-<b>
-1.) Create  VPC - </b>Amazon Virtual Private Cloud (Amazon VPC) allows you to start AWS resources with a user-defined virtual network. This virtual network, along with the benefits of using AWS's scalable infrastructure, is very similar to the existing network operating in the customer's own data center. 
+<h3><b>
+1.) Create  VPC - </b></h3>Amazon Virtual Private Cloud (Amazon VPC) allows you to start AWS resources with a user-defined virtual network. This virtual network, along with the benefits of using AWS's scalable infrastructure, is very similar to the existing network operating in the customer's own data center. 
 
 a. After logging in to the AWS console, select VPC from the service menu. 
 
@@ -40,8 +40,8 @@ As the VPC is created, you can see the process of creating network-related resou
 
 You can check the information of the created VPC. Check related information such as CIDR value, route table, network ACL, etc. Check that the values you just set are correct. 
 
-<b>
-2.) Create VPC Endpoint - </b>In this section, you create an endpoint for S3 to learn a VPC endpoint. 
+<h3><b>
+2.) Create VPC Endpoint - </b></h3>In this section, you create an endpoint for S3 to learn a VPC endpoint. 
 
 In VPC Dashboard, select Endpoints. Click Create endpoint button. 
 
@@ -56,7 +56,8 @@ NOTE:- VPC endpoints are communications within the AWS network and have the secu
 
 </p>
 
-B. Compute - Amazon EC2
+<h3><b>
+B. Compute - Amazon EC2 </b></h3>
    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
 
 
