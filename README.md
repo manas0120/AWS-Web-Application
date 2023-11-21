@@ -1,13 +1,13 @@
-<h1> <b><pre># Highly-Available, Fault tolerant, Multi-Tier Web-Application
- 
+<h1> <b><pre># Highly-Available, Fault tolerant, Multi-Tier Web-Application</pre></b></h1>
+ <h2><pre>
 Specifically, we will walk through the following topics:
 1. Network – Amazon VPC
 2. Compute – Amazon EC2
 3. Database – Amazon Aurora
 4. Storage – Amazon S3
 5. Clean up resource.
-</pre></b>
-</h1>
+</pre>
+</h2>
 
 <pre>
 <h3> <b>
