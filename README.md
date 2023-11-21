@@ -1,5 +1,5 @@
 <h1 style = font-color:Blue> <b><pre># Highly-Available, Fault tolerant, Multi-Tier Web-Application
-   
+ 
 Specifically, we will walk through the following topics`:
 1. Network – Amazon VPC
 2. Compute – Amazon EC2
