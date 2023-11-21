@@ -1,10 +1,11 @@
-<h1 style = font-color:Blue> <b></b># Highly-Availabl, Fault toilerant, Multi-Tier Web-Application
+<h1 style = font-color:Blue> <b># Highly-Availabl, Fault toilerant, Multi-Tier Web-Application
 Specifically, we will walk through the following topics`:
 1. Network – Amazon VPC
 2. Compute – Amazon EC2
 3. Database – Amazon Aurora
 4. Storage – Amazon S3
 5. Clean up resource.
+</b>
 </h1>
 
 A. Network - Amazon VPC -
