@@ -1,6 +1,6 @@
 <h1> <b><pre># Highly-Available, Fault tolerant, Multi-Tier Web-Application
  
-Specifically, we will walk through the following topics`:
+Specifically, we will walk through the following topics:
 1. Network – Amazon VPC
 2. Compute – Amazon EC2
 3. Database – Amazon Aurora
@@ -16,6 +16,7 @@ Network Architecture -
    
 <img width="552" alt="network architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8d22459a-3bd4-4fea-8d05-9d0805903c47">
 
+<p>
 1.) Create  VPC - Amazon Virtual Private Cloud (Amazon VPC) allows you to start AWS resources with a user-defined virtual network. This virtual network, along with the benefits of using AWS's scalable infrastructure, is very similar to the existing network operating in the customer's own data center. 
 
 a. After logging in to the AWS console, select VPC from the service menu. 
@@ -45,6 +46,7 @@ Choose a route table to reflect the endpoint. Select the two private subnets as 
   
 NOTE:- VPC endpoints are communications within the AWS network and have the security and compliance advantage of being able to control traffic through the endpoints. You can also optimize the data processing cost if you transfer your data through a VPC endpoint rather than a NAT gateway. 
 
+</p>
 
 B. Compute - Amazon EC2
    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
