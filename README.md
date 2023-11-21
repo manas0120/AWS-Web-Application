@@ -376,13 +376,32 @@ Following Hands-on for Database Section -
 <img width="521" alt="DB arch configured" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d279ffda-dc6d-43ce-a33f-b7758bc85ace">
 
  <h3>Connect RDS with Web App Server</h3>
- <h4>NOTE: The Web Server instance that you created in the previous computer lab contains code that generates a simple address book to RDS. 
-the Endpoint URL of the RDS must be verified first in order to 
-use the RDS on the EC2 Web Server.</h4>
+ <h4>NOTE: The Web Server instance that you created in the previous computer 
+  lab contains code that generates a simple address book to RDS. 
+  The Endpoint URL of the RDS must be verified first in order to 
+  use the RDS on the EC2 Web Server.</h4>
 
 <h3>Storing RDS Credentials in AWS Secrets Manager</h3>
 <h4>The web server we built includes sample code for our address book. 
- In this lab, you specify which database to use in the sample code and how to connect it. We will store that information in AWS Secrets Manager.</h4>
+ In this lab, you specify which database to use in the sample code and how to connect it. 
+ We will store that information in AWS Secrets Manager.</h4>
 
-<h2></h2>
+<h4>
+We will create a secret containing data connection information. Later, we will give the web server the appropriate permission to retrieve the secret.
+<ol style="list-style-type:lower-alpha">
+ <li>In the console window, open AWS Secrets Manager (https://console.aws.amazon.com/secretsmanager/ ) and
+click the Store a new secret button.</li>
+<li>Under Secret Type, choose Credentials for Amazon RDS database. 
+Write down the user name and password you entered when creating the database. And under Database select the database you just created. 
+Then click the Next button.</li>
+<li>Name your secret, mysecret. The sample code is written to ask for the secret by this specific name. Click Next.</li>
+<li>Leave Secret rotation at default values. Click Next.</li>
+<li>Review your choices. Click Store.</li>
+<li>You can check the list of secret values with the name mysecret as shown below.</li>
+<li>Click mysecret hyperlink and find Secret value tab. And click Retrieve secret value button.</li>
+<li>Click Edit button, and check whether there is dbname
+and immersionday in key/value section. If they were not, 
+click Add button, fill out the value and click save button.</li>
+</ol>
+</h4>
 </pre>
