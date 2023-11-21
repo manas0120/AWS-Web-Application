@@ -172,7 +172,7 @@ Auto Scaling group has been created.
 
  
 <h3> CHECK WEB SERVICE AND TEST </h3>
-   <p>First, let's check whether you can access the website normally and whether the load balancer works, and then load the web server to see if Auto Scaling works.</p>
+   <p><pre>First, let's check whether you can access the website normally and whether the load balancer works, and then load the web server to see if Auto Scaling works.
 
  i. Check Web Service and load balancer
  To access through the Application Load Balancer configured for the web service, click the Load Balancers menu in the EC2 console and select the Web-ALB you created earlier. Copy DNS name from the basic configuration.
@@ -188,5 +188,5 @@ Auto Scaling group has been created.
 
  v. Now, let's test load to see whether Auto Scaling works well. On the web page above, click the LOAD TEST menu. The web page changes and the applied load is visible. Click on the logo at the top left of the page to see that each instance is under load.
 
-<b> NOTE-: The principle that causes CPU load is that when the CPU Idle value is over 50, the PHP code operates every five seconds to create, compress, and decompress arbitrary files. Traffic is distributed and operated by the ALB, so the load is applied to other instances continuously.</b>
+<b> NOTE-: The principle that causes CPU load is that when the CPU Idle value is over 50, the PHP code operates every five seconds to create, compress, and decompress arbitrary files. Traffic is distributed and operated by the ALB, so the load is applied to other instances continuously.</b></pre></h3>
 </pre>
