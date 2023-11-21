@@ -375,5 +375,14 @@ Following Hands-on for Database Section -
 <h4><b>Services Configured so far </b></h4>
 <img width="521" alt="DB arch configured" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d279ffda-dc6d-43ce-a33f-b7758bc85ace">
 
- 
+ <h3>Connect RDS with Web App Server</h3>
+ <h4>NOTE: The Web Server instance that you created in the previous computer lab contains code that generates a simple address book to RDS. 
+the Endpoint URL of the RDS must be verified first in order to 
+use the RDS on the EC2 Web Server.</h4>
+
+<h3>Storing RDS Credentials in AWS Secrets Manager</h3>
+<h4>The web server we built includes sample code for our address book. 
+ In this lab, you specify which database to use in the sample code and how to connect it. We will store that information in AWS Secrets Manager.</h4>
+
+<h2></h2>
 </pre>
