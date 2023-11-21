@@ -209,4 +209,26 @@ ix. If you use the ALB DNS that you copied earlier to access and refresh the web
 
  <img width="347" alt="Aurora Db Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8264335c-badc-443f-8362-44575560b6e4">
 
+ <h4>
+Order for Database Section - 
+1. Create VPC security group
+2. Create RDS instance
+3. Connect RDS with Web App server
+4. Access RDS from EC2
+5. (option) RDS Management Features
+6. (option) Connect RDS Aurora
+ </h4>
+
+ <h3>Create VPC Security group
+ NOTE- The RDS service uses the same security model as EC2. The most common usage format is to provide data as a database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied for proper access control.</h3>
+
+ <h4>The RDS service uses the same security model as EC2. The most common usage format is to provide data as a database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied for proper access control.</h4>
+
+ <ol>
+<li> On the left side of the VPC dashboard, select Security Groups and then select Create Security Group.</li>
+<li>Enter Security group name and Description as shown below. Choose the VPC that was created in the first lab. It should be named VPC-Lab.</li>
+
+
+ </ol>
+ 
 </pre>
