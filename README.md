@@ -1,4 +1,4 @@
-<h1> <b></b># Highly-Availabl, Fault toilerant, Multi-Tier Web-Application
+<h1 style = font-color:Blue> <b></b># Highly-Availabl, Fault toilerant, Multi-Tier Web-Application
 Specifically, we will walk through the following topics`:
 1. Network – Amazon VPC
 2. Compute – Amazon EC2
