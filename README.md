@@ -212,112 +212,83 @@ In Amazon Machine Image(AMI), set the AMI to Web Server v1, which was created in
 You can find it by typing Web Server v1 in the search section, or you can scroll down to find it in the My AMI section. 
 Next, select t2.micro for the instance type. We are not going to configure SSH access because this is only for Web service server. 
 Therefore, we do not use key pairs.
-
 Leave the other parts as default. Let's take a look at the Network Settings section. 
 First, in Networking platform select Virtual Private Cloud(VPC). 
 In security group section, find and apply ASG-Web-Inst-SG created before.
-
 Follow the Storage's default values without any additional change. Go down and define the Instance tags. 
 Click Add tag and Name for Key and Web Instance for Value. Select Resource types as Instances and Volumes.
-
 Finally, in the Advanced details tab, set the IAM instance profile to SSMInstanceProfile. 
  Leave all other settings as default, and click the Create launch template button at the bottom right to create a launch template.
-
 <h3>j. Set Auto Scaling Group</h3>
 Enter the EC2 console and select Auto Scaling Groups at the bottom of the left navigation panel. 
 Then click the Create Auto Scaling group button to create an Auto Scaling Group.
-
 In [Step 1: Choose launch template or configuration], specify the name of the Auto Scaling group. 
 In this workshop, we will designate it as Web-ASG. Then select the launch template that you just created named Web. 
 The default settings for the launch template will be displayed. Confirm and click the lower right Next button.
 Set the network configuration with the Purging options and instance types as default. Choose VPC-Lab-vpc for VPC, 
  select Private subnet 1 and Private subnet 2 for Subnets. When the setup is completed, click the Next button.
-
 Next, proceed to set up load balancing. First, select Attach to an existing load balancer. 
 Then in Choose a target group for your load balancer, select Web-TG created during in ALB creation.
 At the Monitoring, select Check box for Enable group metrics collection within CloudWatch. 
 This allows CloudWatch to see the group metrics that can determine the status of Auto Scaling groups. Click the Next button at the bottom right.
-
 In the step of Configure group size and scaling policies, set scaling policy for Auto Scaling Group. 
 In the Group size column, specify Desired capacity and Minimum capacity as 2 and Maximum capacity as 4.
 Keep the number of the instances to 2 as usual, and allow scaling of at least 2 and up to 4 depending on the policy.
 In the Scaling policies section, select Target tracking scaling policy and type 30 in Target value.
 This is a scaling policy for adjusting the number of instances based on the CPU average utilization remaining at 30% overall.
 Leave all other settings as default and click the Next button in the lower right corner.
-
 Click the Next button to move to the next step. In the Add tags step, we will simply assign name tag. 
- 
 Click Add tag, type Name in Key, ASG-Web-Instance in Value, and then click Next.
 Now we are in the final stage of review. After checking the all settings, click the Create Auto Scaling Group
 button at the bottom right.
- 
 Auto Scaling group has been created.
-
- High available and automatically scales Load Architecture
-
+High available and automatically scales Load Architecture
  <img width="626" alt="HA Load Balancing arch" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/5681516e-194f-49a1-abed-a9f06ba56ec2">
-
- 
 <h3> CHECK WEB SERVICE AND TEST </h3>
    <p>First, let's check whether you can access the website normally and whether the load balancer works,
     and then load the web server to see if Auto Scaling works.
-
  i. Check Web Service and load balancer
  To access through the Application Load Balancer configured for the web service, click the Load Balancers 
     menu in the EC2 console and select the Web-ALB you created earlier. Copy DNS name from the basic configuration.
-
  ii. Open a new tab in your web browser and paste the copied DNS name. You can see that web service 
     is working as shown below. For the figure below, you can see that the web instance placed in 
     us-east-1a is running this web page.
-
  iii. If you click the refresh button here, you can see that the host serving the web page has been 
     replaced with an instance of another availability zone area (us-east-1c) as shown below. 
     This is because routing algorithms in ALB target groups behave Round Robin by default.
-
  iv. Currently, in the the Auto Scaling group, scaling policy's baseline has been set to 30% CPU utilization for each instance.
-
 - If the average CPU utilization of an instance is less than 30%, Reduce the number of instances.
 - If the average CPU utilization of an instance is over 30%, Additional instances will be deployed, 
     load will be distributed, and adjusted to ensure that the average CPU utilization of the instances is 30%.
-
  v. Now, let's test load to see whether Auto Scaling works well. On the web page above, click the 
     LOAD TEST menu. The web page changes and the applied load is visible. Click on the logo at the 
     top left of the page to see that each instance is under load.
-  
-<b> NOTE-: The principle that causes CPU load is that when the CPU Idle value is over 50, the PHP code 
+  <b> NOTE-: The principle that causes CPU load is that when the CPU Idle value is over 50, the PHP code 
  operates every five seconds to create, compress, and decompress arbitrary files. Traffic is distributed 
  and operated by the ALB, so the load is applied to other instances continuously.</b>
-  
 vi. Enter Auto Scaling Groups from the left side menu of the EC2 console and click the Monitoring tab. 
     Under Enabled metrics, click EC2 and set the right time frame to 1 hour. If you wait for a few seconds, 
     you'll see the CPU Utilization (Percent) graph changes.
-
 vii. Wait for about 5 minutes (300 seconds) and click the Activity tab to see the additional EC2 instances deployed according to the scaling policy.
-
 viii. When you click on the Instance management tab, you can see that two additional instances have sprung up and a total of four are up and running.
-
 ix. If you use the ALB DNS that you copied earlier to access and refresh the web page, you can see that it is
     hosting the web page in two instances that were not there before. The current CPU load is 0% because it is
     a new instance. It can also be seen that each of them was created in a different availability zone. 
     If it's not 0%, it can look more than 100% because it's a constant load situation.
 </pre>
-
 <pre>
 <h3>C. DATABASE - AMAZON AURORA</h3>
  Among the many database options available on AWS, Amazon RDS(Relational Database Service) is a cloud-based 
  database service that is easy to configure and operate and easy to scale. Amazon RDS is cost-effective, easy
  to adjust capacity, and reduces time-consuming management tasks, 
  allowing users to focus more on their business and applications.
-
  In this database lab, we will deploy RDS Aurora instance in VPC-Lab and configure the web service(Apache + PHP) 
  in Auto Scaling Group to use RDS Aurora(MySQL). When the connection to the database is completed, create a new 
  version of the existing custom AMI and update the Auto Scaling Group to use the new version of AMI. In addtion,
  we conduct a test to add/modify/delete contacts in a simple address book stored in RDS' DB through the web browser.
 
  <h3>Architecture - </h3>
-
  <img width="347" alt="Aurora Db Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8264335c-badc-443f-8362-44575560b6e4">
-
  <h4>
 Following Hands-on for Database Section - 
 1. Create VPC security group
@@ -327,14 +298,12 @@ Following Hands-on for Database Section -
 5. (option) RDS Management Features
 6. (option) Connect RDS Aurora
  </h4>
-
  <h4>1. Create VPC Security group
  NOTE- The RDS service uses the same security model as EC2. The most common usage format is to provide data as 
   a database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure
   it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied 
   for proper access control.</h4>
- 
- <h4>The RDS service uses the same security model as EC2. The most common usage format is to provide data as a
+  <h4>The RDS service uses the same security model as EC2. The most common usage format is to provide data as a
   database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure
   it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied
   for proper access control.</h4>
@@ -344,7 +313,6 @@ Following Hands-on for Database Section -
 <li>Scroll down to the Inbound rules column. Click Add rule to create a security group policy that allows access to RDS from the EC2 Web servers that you previously created through the Auto Scaling Group. Under Type, select MySQL/Aurora The port range should default to 3306. The protocol and port ranges are automatically specified. The Source type entry can specify the IP band (CIDR) that you want to allow acces to, or other security groups that the EC2 instances to access are already using. Select the security group(named ASG-Web-Inst-SG ) that is applied to the web instances of the Auto Scaling group in the Compute - Amazon EC2</li>
 <li>When settings are completed, click Create Security Group at the bottom of the list to create this security group.</li>
 </ol>
-
  <h3>2. Create RDS Instance </h3>
         <h4>Create an instance of RDS Aurora (MySQL compatible).</h4>
 <ol style="list-style-type:lower-alpha">
@@ -371,10 +339,8 @@ Following Hands-on for Database Section -
 <li>A new RDS instance is now creating. This may take more than 5 minutes. 
  You can use an RDS instance when the DB instance's status changed to</li>
 </ol>
-
 <h4><b>Services Configured so far </b></h4>
 <img width="521" alt="DB arch configured" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d279ffda-dc6d-43ce-a33f-b7758bc85ace">
-
  <h3>Connect RDS with Web App Server</h3>
  <h4>NOTE: The Web Server instance that you created in the previous computer 
   lab contains code that generates a simple address book to RDS. 
@@ -386,7 +352,6 @@ Following Hands-on for Database Section -
 The web server we built includes sample code for our address book. 
 In this lab, you specify which database to use in the sample code and how to connect it. 
 We will store that information in AWS Secrets Manager.</h4>
-
 <h4>
 We will create a secret containing data connection information. Later, we will give the web server the appropriate permission to retrieve the secret.
 <ol style="list-style-type:lower-alpha">
@@ -405,14 +370,12 @@ and immersionday in key/value section. If they were not,
 click Add button, fill out the value and click save button.</li>
 </ol>
 </h4>
-
 <h3>Access RDS from EC2</h3>
  <h4>Note: Now that you have created a secret, you must give 
  your web server permission to use it. To do this, we will 
  create a Policy that allows the web server to read a secret. 
  We will add this policy to the Role you previously assigned 
  to the web server.</h4>
-
 <h3> Allow the web service to access the Internet</h3>
 <ol>
  <li>Sign in to the AWS Management Console and open the IAM console. 
@@ -434,23 +397,19 @@ Check the box and click Attach policy.</li>
 <li>Under Permissions policies, verify that AmazonSSMManagedInstanceCore
 and ReadSecrets are both listed.</li>
 </ol>
-
  <h3> Try Address Book</h3>
  <ol>
  <li>Access the [EC2 Console] (https://console.aws.amazon.com/ec2/v2/home?instanceState=running ) 
  window and click load balancer. After copying the DNS name of the load balancer 
  created in the compute lab, open a new tab in your browser and paste it.</li>
 <li>After connecting to the web server, go to the RDS tab.</li>
-  
-<li>Now you can check the data in the database you created.</li>
+  <li>Now you can check the data in the database you created.</li>
  </ol>
-
  <h3>RDS Managment Features</h3>
  <h4>NOTE:- In multiple AZ deployments, Amazon RDS automatically provisions and maintains 
   synchronous spare replicas in different availability zone. The default DB instance is 
   synchronized from the availability zone to the spare replica to provide data redundancy.
 </h4>
-
 <h3> RDS FAILOVER Tests</h3>
 <h4>NOTE:- When multiple AZs are enabled, Amazon RDS automatically switches to a spare replica 
  in another availability zone if the DB instance has a planned or unplanned outage. The amount of time 
@@ -459,7 +418,6 @@ and ReadSecrets are both listed.</li>
  if the transaction is large or the recovery process is complex, the time required for failover can be increased. 
  When failover is complete, the RDS console UI takes additional time to reflect in the new availability zone.
 </h4>
-
 <ol>
  <li>From the RDS management console, select Databases, select the instance that you want to proceed with the failover,
   and click Failover in the task menu</li>
@@ -467,10 +425,8 @@ and ReadSecrets are both listed.</li>
  <li>The refresh button changes the status of rdscluster in the DB identifier to Failing-over.
   In a few minutes, press the Refresh button to see Reader and Writer roles changed. The failover is complete.</li>
 </ol> 
-
 <h4> Create RDS Snapshot - Snapshot can be created at any frequency for backup to 
  database instances, and the database can be restored at any time based on the snapshots created.</h4>
-
 <ol>
  <li>From the RDS management console, select Databases, and Select the instance on which you want to perform 
   the snapshot operation. Select Actions > Take snapshot in the upper right corner.</li>
@@ -482,7 +438,6 @@ and ReadSecrets are both listed.</li>
   see what you can do with that snapshot. Restore Snapshot allows you to create RDS instances with
   the same data based on snapshots taken. This lab will not perform a restore.</li>
 </ol>
-
  <h3> Change RDS INSTANCE type</h3>
  <h4>Scale-Up/Scale-Down of RDS instances can be done very simply 
   through the RDS Management Console.
@@ -509,18 +464,13 @@ and ReadSecrets are both listed.</li>
    </ol>
  <h4>RDS can change the size of the instance at any time. However, the size of the database does not support shrink after scaling up.
 </h4>
-
 <h3>Coneect RDS Aurora</h3>
  <h5>
 1. Create an EC2 instance with the AMI created in Public Subnet within the VPC-Lab. The networking option should allow Public IP.
-
 2. Changes the security group settings for RDS Aurora. Configure the newly created EC2 instance to accept security groups as sources.
-
 3. Log in to the EC2 instance you just created with SSH, and connect to RDS Aurora through the MySQL Client. 
    The EC2 web server already has MySQL client installed during EC2 deployment.</h5>
-
  <h4>Once the setup is successful, you can connect to the CLI environment and perform mysql commands as shown below.</h4>
-
  <pre>
   $ ssh -i AWS-ImmersionDay-Lab.pem ec2-user@”EC2 Host FQDN or IP”
 Last login: Sun Feb 18 14:41:59 2018 from 112.148.83.236
@@ -582,11 +532,9 @@ mysql>
 <pre>
  <h3>D. Storage - Amazon S3</h3>
  <h4>Amazon Simple Storage Service (S3) provides a web service-based interface that simplifies data processing anytime, anywhere.
-
 Outline - This lab is designed to help users learn how to save, check, move, and delete data using S3. 
 You can also see the ability to host simple static web pages using S3's static website hosting functionality.
 </h4>
-
 <h3>Architecture</h3>
 <img width="522" alt="S3 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e67849bb-4ea3-4c75-8c67-a336830fdbd1">
 
