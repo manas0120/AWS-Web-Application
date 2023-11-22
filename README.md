@@ -563,8 +563,51 @@ NOTE - There are no costs incurred for creating bucket. You pay for storing obje
 This lab hosts static websites through S3. The static website serves as a redirect to an instance 
 created by the VPC Lab when you click on a particular image. Therefore, prepare one image file, 
 one HTML file, and an ALB DNS name.
-
  <ol>
-  <li>Download the image file <a href="https://static.us-east-1.prod.workshops.aws/public/dd38a0a0-ae47-43f1-9065-f0bbcb15f684/static/common/s3_advanced_lab/aws.png">aws.png</a>  and save it as aws.png.</li>
+  <li>Download the image file <a href="https://static.us-east-1.prod.workshops.aws/public/dd38a0a0-ae47-43f1-9065-f0bbcb15f684/static/common/s3_advanced_lab/aws.png">aws.png</a>and save it as aws.png.</li>
+ <li>Write index.html using the source code below.</li>
+
+  <pre>
+   <html>
+    <head>
+        <meta charset="utf-8">
+        <title> AWS General Immersion Day S3 HoL </title>
+    </head>
+    <body>
+        <center>
+        <br>
+        <h2> Click image to be redirected to the EC2 instance that you created </h2>
+        <img src="{{Replace with your S3 URL Address}}" onclick="window.location='DNS Name'"/>
+        </center>
+    </body>
+</html>
+  </pre>
+ <li>Upload the aws.png file to S3. Click S3 Bucket that you just created</li>
+ <li>Click the Upload button. Then click the Add files button. Select the pre-downloaded aws.png 
+  file through File Explorer. Alternatively, place the file in Drag and Drop to the screen.</li>
+  <li>Check the file information named aws.png to upload, 
+   then click the Upload button at the bottom.</li>
+   <li>Check the URL information to fill in the image URL in index.html file. 
+    Select the uploaded aws.png file and copy the Object URL information from the details on the right.</li>
+   <li>Paste Object URL into the image URL part of the index.html. 
+     Then specify the ALB DNS Name of the load balancer created by Deploy auto scaling web service 
+     to redirect to ALB when you click on the image.</li>
+   <li>Upload the index.html file to S3 following the same instructions as you did to upload the image.</li> 
  </ol>
+
+ NOTE - By default, all objects in the S3 bucket are owner-only(Private). To determine the object through 
+ a URL of the same format as https://{Bucket}.s3.{region}.amazonaws.com/{Object}, you must grant Read permission for external users to read it. Alternatively, you can create a signature-based Signed URL that contains credentials for that object, allowing unauthorized users to access it temporarily.
+
+<ol>
+ VIEW OBJECTS
+ <li>select the Permissions tab in the bucket. To modify the application of Block public access (bucket settings), press the right Edit button.</li>
+ <li>Uncheck box and press the Save changes button</li>
+ <li>Enter confirm in the bucket's Edit Block public access pop up window and press the Confirm button.</li>
+ <li>Click the Objects tab, select the uploaded files, click the Action drop-down button, and press the Make public button to set them to public.</li>
+ <li>When the confirmation window pops up, press the Make public button again to confirm.</li>
+ <li>Return to the bucket page, select index.html, and click the Object URL link in the Show Details entry.</li>
+ <li>When you access the HTML object file object URL, the following screen is printed.</li>
+</ol>
+<img width="464" alt="AWS EC2 S3 image" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/cb630570-6c7d-475e-bfea-7d43c9d66304">
+
 </pre>
