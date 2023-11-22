@@ -444,4 +444,79 @@ and ReadSecrets are both listed.</li>
   
 <li>Now you can check the data in the database you created.</li>
  </ol>
+
+ <h3>RDS Managment Features</h3>
+ <h4>NOTE:- In multiple AZ deployments, Amazon RDS automatically provisions and maintains 
+  synchronous spare replicas in different availability zone. The default DB instance is 
+  synchronized from the availability zone to the spare replica to provide data redundancy.
+</h4>
+
+<h3> RDS FAILOVER Tests</h3>
+<h4>NOTE:- When multiple AZs are enabled, Amazon RDS automatically switches to a spare replica 
+ in another availability zone if the DB instance has a planned or unplanned outage. The amount of time 
+ that failover takes to complete depends on the database activity and other conditions when the default
+ DB instance becomes unavailable. The time required for failover is typically 60-120 seconds. However, 
+ if the transaction is large or the recovery process is complex, the time required for failover can be increased. 
+ When failover is complete, the RDS console UI takes additional time to reflect in the new availability zone.
+</h4>
+
+<ol>
+ <li>From the RDS management console, select Databases, select the instance that you want to proceed with the failover,
+  and click Failover in the task menu</li>
+ <li>A message asking whether you're going to failover the rdscluster. Press the Failover button.</li>
+ <li>The refresh button changes the status of rdscluster in the DB identifier to Failing-over.
+  In a few minutes, press the Refresh button to see Reader and Writer roles changed. The failover is complete.</li>
+</ol> 
+
+<h4> Create RDS Snapshot - Snapshot can be created at any frequency for backup to 
+ database instances, and the database can be restored at any time based on the snapshots created.</h4>
+
+<ol>
+ <li>From the RDS management console, select Databases, and Select the instance on which you want to perform 
+  the snapshot operation. Select Actions > Take snapshot in the upper right corner.</li>
+ <li>Type the name you want to use for the snapshot as immersionday-snapshot. 
+  Press the Take Snapshot button to complete the creation.</li>
+ <li>From the left RDS menu, select Snapshots and check the creation status of the snapshot.
+  The state of the snapshot is the first creating state, and you can use that snapshot to restore 
+  the database when state become available. To restore, select the snapshot and select Actions to 
+  see what you can do with that snapshot. Restore Snapshot allows you to create RDS instances with
+  the same data based on snapshots taken. This lab will not perform a restore.</li>
+</ol>
+
+ <h3> Change RDS INSTANCE type</h3>
+ <h4>Scale-Up/Scale-Down of RDS instances can be done very simply 
+  through the RDS Management Console.
+</h4>
+ <ol>
+  <li>Let's change the specification of the RDS instance by selecting the instance you want 
+   to change and clicking Modify. </li>
+  <li>You can select the specification of the instance that you want to change by selecting 
+   the list box of instance classes. Let's choose db.r6g.large here.</li>
+  <li>Scroll to the bottom and select Continue to go to the page 
+   where you check the instance's current value and new value 
+   and select when to apply.</li>
+  <li>Select Apply immediately. In this case, RDS changes its instance immediately after perform a back up task. 
+   Then click Modify DB Instance. Depending on the type of instance and the amount of data to back up, 
+   it can take several minutes. Therefore, you should expect a certain amount of downtime for RDS services
+   (Redundant configuration minimizes downtime).</li>
+  <h4>NOTE:- In case of selecting Apply during the next scheduled maintenance window, make the change in the 
+   user's Maintenance Window, which is specified on a weekly basis.</h4>
+  <li>You can see that the status of the instance has changed to Modifying.</li>
+  <li>When you click refresh button again, you can see that the Writer instance has changed. 
+   This is because the instance you selected earlier for the size change was the Writer instance.
+   RDS minimizes downtime through failover before resizing. If you wait a moment, you will see that the 
+   change to Available status has been completed as shown below.</li>
+   </ol>
+ <h4>RDS can change the size of the instance at any time. However, the size of the database does not support shrink after scaling up.
+</h4>
+
+<h3>Coneect RDS Aurora</h3>
+ <h5>
+1. Create an EC2 instance with the AMI created in Public Subnet within the VPC-Lab. The networking option should allow Public IP.
+
+2. Changes the security group settings for RDS Aurora. Configure the newly created EC2 instance to accept security groups as sources.
+
+3. Log in to the EC2 instance you just created with SSH, and connect to RDS Aurora through the MySQL Client. 
+   The EC2 web server already has MySQL client installed during EC2 deployment.</h5>
+
 </pre>
