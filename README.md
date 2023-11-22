@@ -578,3 +578,12 @@ mysql>
 
  </pre>
 </pre>
+
+<pre>
+ <h3>D. Storage - Amazon S3</h3>
+ <h4>Amazon Simple Storage Service (S3) provides a web service-based interface that simplifies data processing anytime, anywhere.
+
+Outline - This lab is designed to help users learn how to save, check, move, and delete data using S3. 
+You can also see the ability to host simple static web pages using S3's static website hosting functionality.
+</h4>
+</pre>
