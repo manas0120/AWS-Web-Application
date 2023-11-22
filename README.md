@@ -586,4 +586,9 @@ mysql>
 Outline - This lab is designed to help users learn how to save, check, move, and delete data using S3. 
 You can also see the ability to host simple static web pages using S3's static website hosting functionality.
 </h4>
+
+<h3>Architecture</h3>
+<img width="522" alt="S3 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e67849bb-4ea3-4c75-8c67-a336830fdbd1">
+
+ 
 </pre>
