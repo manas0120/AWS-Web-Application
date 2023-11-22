@@ -519,4 +519,62 @@ and ReadSecrets are both listed.</li>
 3. Log in to the EC2 instance you just created with SSH, and connect to RDS Aurora through the MySQL Client. 
    The EC2 web server already has MySQL client installed during EC2 deployment.</h5>
 
+ <h4>Once the setup is successful, you can connect to the CLI environment and perform mysql commands as shown below.</h4>
+
+ <pre>
+  $ ssh -i AWS-ImmersionDay-Lab.pem ec2-user@”EC2 Host FQDN or IP”
+Last login: Sun Feb 18 14:41:59 2018 from 112.148.83.236
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2017.09-release-notes/
+
+
+$ mysql -u awsuser -pawspassword -h awsdb.ccjlcjlrtga1.ap-northeast-2.rds.amazonaws.com
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 34
+Server version: 5.6.10 MySQL Community Server (GPL)
+
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| immersionday       |
+| mysql              |
+| performance_schema |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> use immersionday;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_immersionday |
++------------------------+
+| address                |
++------------------------+
+1 row in set (0.01 sec)
+
+mysql> select * from address;
++----+-------+--------------+---------------------+
+| id | name  | phone        | email               |
++----+-------+--------------+---------------------+
+|  1 | Bob   | 630-555-1254 | bob@fakeaddress.com |
+|  2 | Alice | 571-555-4875 | alice@address2.us   |
++----+-------+--------------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+ </pre>
 </pre>
