@@ -597,4 +597,20 @@ one HTML file, and an ALB DNS name.
 </ol>
 <img width="464" alt="AWS EC2 S3 image" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/cb630570-6c7d-475e-bfea-7d43c9d66304">
 
+ <h3>Enable Static Hosting</h3>
+ <h4>A static website refers to a website that contains static content (HTML, image, video) 
+  or client-side scripts (Javascript) on a web page. In contrast, dynamic websites require 
+  server-side processing, including server-side scripts such as PHP, JSP, or ASP.NET. 
+  Server-side scripting is not supported on Amazon S3. If you want to host a dynamic website, 
+  you can use other services such as EC2 on AWS.
+</h4>
+
+<ol>
+ <li>In the S3 console, select the bucket you just created, and 
+  click the Properties tab. Scroll down and click the Edit button on 
+  Static website hosting.</li>
+ <li>Activate the static website hosting function and select the hosting type and 
+  enter the index.html value in the Index document value, then click the save changes button.</li>
+ <li>Click Bucket website endpoint created in the Static website hosting entry to access the static website.</li>
+</ol> 
 </pre>
