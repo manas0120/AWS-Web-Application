@@ -565,6 +565,6 @@ created by the VPC Lab when you click on a particular image. Therefore, prepare 
 one HTML file, and an ALB DNS name.
 
  <ol>
-  <li>Download the image file <a href="https://static.us-east-1.prod.workshops.aws/public/dd38a0a0-ae47-43f1-9065-f0bbcb15f684/static/common/s3_advanced_lab/aws.png"> aws.png</a>  and save it as aws.png.</li>
+  <li>Download the image file <a href="https://static.us-east-1.prod.workshops.aws/public/dd38a0a0-ae47-43f1-9065-f0bbcb15f684/static/common/s3_advanced_lab/aws.png">aws.png</a>  and save it as aws.png.</li>
  </ol>
 </pre>
