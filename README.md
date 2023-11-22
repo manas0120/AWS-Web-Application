@@ -567,21 +567,8 @@ one HTML file, and an ALB DNS name.
   <li>Download the image file <a href="https://static.us-east-1.prod.workshops.aws/public/dd38a0a0-ae47-43f1-9065-f0bbcb15f684/static/common/s3_advanced_lab/aws.png">aws.png</a>and save it as aws.png.</li>
  <li>Write index.html using the source code below.</li>
 
-  <pre>
-   <html>
-    <head>
-        <meta charset="utf-8">
-        <title> AWS General Immersion Day S3 HoL </title>
-    </head>
-    <body>
-        <center>
-        <br>
-        <h2> Click image to be redirected to the EC2 instance that you created </h2>
-        <img src="{{Replace with your S3 URL Address}}" onclick="window.location='DNS Name'"/>
-        </center>
-    </body>
-</html>
-  </pre>
+  <img width="602" alt="S3 index file" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/1bf194fd-180d-4224-a7da-964d992376af">
+ 
  <li>Upload the aws.png file to S3. Click S3 Bucket that you just created</li>
  <li>Click the Upload button. Then click the Add files button. Select the pre-downloaded aws.png 
   file through File Explorer. Alternatively, place the file in Drag and Drop to the screen.</li>
