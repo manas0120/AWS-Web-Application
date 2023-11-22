@@ -538,5 +538,33 @@ You can also see the ability to host simple static web pages using S3's static w
 <h3>Architecture</h3>
 <img width="522" alt="S3 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e67849bb-4ea3-4c75-8c67-a336830fdbd1">
 
- 
+ <h4>Create Bucket on S3</h4>
+ <ol>
+  <li>From the AWS Management Console, connect to S3 . Press Create bucket to create a bucket.</li>
+ <li>Enter a unique bucket name in the Bucket name field. For this lab, type immersion-day-user_name, 
+  substituiting user-name with your name. All bucket names in Amazon S3 have to be unique and cannot be duplicated. 
+  In the Region drop-down box, specify the region to create the bucket. In this lab, select the region closest to you. 
+  The images will show the Asia Pacific (Seoul) region. Object Ownership change to ACLs enabled. 
+  Bucket settings for Block Public Access use default values, and select Create bucket in the lower right corner.</li>
+
+<h4>Note - Bucket names must comply with these rules:
+Can contain lowercase letters, numbers, dots (.), and dashes (-).
+Must start with a number or letter.
+Can be specified from a minimum of 3 to a maximum of 255 characters in length.
+Cannot be specified in the format like the IP address (e.g., 265.255.5.4).</h4>
+<li>A bucket has been created on Amazon S3.</li>
+</ol>
+
+NOTE - There are no costs incurred for creating bucket. You pay for storing objects in your S3 buckets. 
+ The rate you’re charged depends on the region you are using, your objects' size, how long you stored the 
+ objects during the month, and the storage class. There are also per-request fees. Click for more information 
+
+ <h4>Adding Objects to Bucket</h4>
+This lab hosts static websites through S3. The static website serves as a redirect to an instance 
+created by the VPC Lab when you click on a particular image. Therefore, prepare one image file, 
+one HTML file, and an ALB DNS name.
+
+ <ol>
+  <li>Download the image file <a href="https://static.us-east-1.prod.workshops.aws/public/dd38a0a0-ae47-43f1-9065-f0bbcb15f684/static/common/s3_advanced_lab/aws.png"> aws.png</a>  and save it as aws.png.</li>
+ </ol>
 </pre>
