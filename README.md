@@ -613,4 +613,43 @@ one HTML file, and an ALB DNS name.
   enter the index.html value in the Index document value, then click the save changes button.</li>
  <li>Click Bucket website endpoint created in the Static website hosting entry to access the static website.</li>
 </ol> 
+
+ <h3> Move Objects</h3>
+ <ol>
+  <li>Create a temporary bucket for moving objects between buckets 
+  (Bucket name: immersion-day-myname-target). Substitute myname with your name. 
+   Rememeber the naming rules for the bucket. Block all public access 
+   Uncheckbox for quick configuration.</li>
+ <li>Check the notification window below and select Create bucket.</li>
+ <li>In the Amazon S3 Console, select the bucket that contains the object 
+  (the first bucket you created) and click the checkbox for the object you want to move. 
+  Select the Actions menu at the top to see the various functions you can perform on that object.
+  Select Move from the listed features.</li>
+<li>Select the destination as bucket, then click the Browse S3 button to find the new bucket you just created.</li>
+<li>Click the bucket name in the pop-up window, then select the destination (arrival) bucket. 
+ Click the Choose destination button.</li>
+<li>Check that the object has moved to the target bucket.</li>
+ </ol>
+
+ <h4>Enable Versioning</h4>
+ <ol>
+  <li>In the Amazon S3 Console, select the first S3 bucket we created. Select the Properties menu. 
+   Click the Edit button in Bucket Versioning.</li>
+<li>Click the enable radio button on Bucket Versioning, then click Save changes.</li>
+<li>In this lab, the index.html file will be modified and re-uploaded with the same name. 
+ Make some changes to the index.html file. Then upload the modified file to the same S3 bucket.</li>
+<li>When the changed file is completely uploaded, click the object in the S3 Console. 
+ You can view current version information by clicking the Versions tab on the page that contains object details.</li>
+</ol>
+
+ <h4>Delecting Objects anfd Buckets</h4>
+ <ol>
+  <li>In the Amazon S3 Console, select the Bucket that you want to delete. Then click Delete. 
+  A dialog box appears for deletion.</li>
+  <li>There is a warning that buckets cannot be deleted because they are not empty. 
+   Select empty bucket configuration to empty buckets.</li>
+ <li>Empty bucket performs a one-time deletion of all objects in the bucket. 
+  Confirm by typing permanently delete in the box. Then click the Empty button.</li>
+<li>Now the bucket is empty. Perform task 1 again. Enter a bucket name and press the Delete bucket button.</li>
+ </ol>
 </pre>
