@@ -190,6 +190,7 @@ and ReadSecrets are both listed.</li>
 3. Log in to the EC2 instance you just created with SSH, and connect to RDS Aurora through the MySQL Client. 
    The EC2 web server already has MySQL client installed during EC2 deployment.</h5>
  <h4>Once the setup is successful, you can connect to the CLI environment and perform mysql commands as shown below.</h4>
+ <pre>
  $ ssh -i AWS-ImmersionDay-Lab.pem ec2-user@”EC2 Host FQDN or IP”
 Last login: Sun Feb 18 14:41:59 2018 from 112.148.83.236
 
@@ -243,4 +244,4 @@ mysql> select * from address;
 2 rows in set (0.00 sec)
 
 mysql>
-
+</pre>
