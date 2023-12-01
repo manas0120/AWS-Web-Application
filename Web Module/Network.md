@@ -15,7 +15,7 @@ This virtual network, along with the benefits of using AWS's scalable infrastruc
 <li>To create a space to provision AWS resources used in this lab, we will create a VPC and Subnets.
 Select VPC, subnets, etc in Resource to create tab and change name tag to VPC-Lab. Leave the default setting for IPv4 CIDR block. </li>
 <img width="932" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/2262bcb4-02f9-4006-8f4d-f93bade0ee75">
-<li>To design high availability architecture, we create 2 subnet space and select 1a and 1c for Customize AZs. And set the CIDR value of the public subnet that can communicate directly with the Internet as shown in the screen below. 
+<li>To design high availability architecture, we create 2 subnet space and <b>select 1a and 1c for Public Subnet and 1a and 1c for Private Subnet (Customize AZs)</b>. And set the CIDR value of the public subnet that can communicate directly with the Internet as shown in the screen below. 
 Set the CIDR value of the private subnet as shown in the screen. </li>
 <img width="264" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/1909eced-5187-49ec-bd46-86abac6abfd3">
 <li>You can use a NAT gateway so that instances in your private subnets can connect to services outside your VPC, but external services cannot initiate direct connections to these instances. In this lab, we will create a NAT gateway in only one Availability Zone to save cost. Also, for DNS options, enable both DNS hostnames and DNS resolution. After confirming the setting value, click the Create VPC button.</li>
