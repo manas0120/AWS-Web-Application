@@ -1,5 +1,4 @@
 <h3>Clean up Resources</h3>
-
 <h4>Delecting Objects and Buckets</h4>
 <ol>
 <li>In the Amazon S3 Console, select the Bucket that you want to delete. Then click Delete. 
@@ -10,7 +9,6 @@ Select empty bucket configuration to empty buckets.</li>
 Confirm by typing permanently delete in the box. Then click the Empty button.</li>
 <li>Now the bucket is empty. Perform task 1 again. Enter a bucket name and press the Delete bucket button.</li>
 </ol>
-
 <h4>NOTE-  If Completed this workshop with your own account, it is strongly recommend to delete the resources and avoid incurring costs</h4>
 <pre><h3> Delete Database</h3>
  <p>
@@ -32,7 +30,7 @@ Confirm by typing permanently delete in the box. Then click the Empty button.</l
   instance button, and type delete me in the blank. Click Delete DB Cluster and the DB cluster will be deleted.
 </p>
 <h3>Delete RDS Snapshot</h3>
-  <p>
+ <p>
 11.To delete the snapshot of the DB Cluster created during the lab, select immersionday-snapshot and click the Delete snapshot button on the Actions menu.
 12.Click Delete Button.
 </p>
@@ -45,7 +43,6 @@ Type Secrets Manager in the AWS console search bar and then select it.
 4.To prevent accidental deletion of secrets, AWS Secrets Manager has a deletion wait time of minimum 
 7 days and maximum 30 days. Enter the minimum time of 7 days and press the Schedule deletion button.
 </p>
-
 <h3>Compute</h3>
 <p>
 1.We're going to delete the Auto Scaling Group that we used during the lab. 
@@ -53,14 +50,12 @@ Type EC2 in the AWS Console search bar and select it. Select Auto Scaling Groups
 Select the Web-ASG that we created in the lab and click the Delete button on the Actions menu.
 2.Type Delete, click Delete Button.
 </p>
-
 <h4>Delete Application Load Balancer</h4>
 <p>
 3.Next, we're going to delete the Application Load Balancers. 
 Select Load Balancers from the left menu. Then select the Web-ALB that we created in the lab and 
 click the Delete load balancer button in the Actions menu.
 4.Type confirm in the blank and click the Delete button.
-
 <h4>Delete a Target Group</h4>
  5.We're going to delete the Target Group we created when we created the Application Load Balancer. 
  Select Target Groups from the left menu. Select the Target Group we created in the lab, web-TG, and 
@@ -79,7 +74,6 @@ click the Delete load balancer button in the Actions menu.
  11.Select Launch Templates from the left menu. Select the template named Web that you created in the lab. 
  Click the Delete template button on the Actions menu.
  12.Type Delete in the blank and click the Delete button.
-
 <h4>Delete an EC2 instance</h4>
 13.If you went through the (Optional) Connect RDS Aurora section during the database lab, 
 you need to delete the EC2 instance you created in the lab. Select Instances from the left menu. 
@@ -87,9 +81,8 @@ Select the EC2 instance you created during the lab, and
 click the Terminate instance button on the Instance state menu.
 14. Click Terminate.
 </p>
-
 <h3>Network</h3>
- <p>
+<p>
 <h4>Delete VPC</h4>
 1. Type VPC in the AWS Console search bar and select it. 
 Select Endpoints from the left menu. Select S3 endpoint, 
