@@ -23,6 +23,7 @@ Set the CIDR value of the private subnet as shown in the screen. </li>
 <li>As the VPC is created, you can see the process of creating network-related resources as shown in the screen below. For NAT Gateway, provisioning may take longer compared to other resources.</li>
 <img width="314" alt="vpc workflow" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/415378e2-0b79-4f31-ab85-4659597585ca">
 <li>You can check the information of the created VPC. Check related information such as CIDR value, route table, network ACL, etc. Check that the values you just set are correct. </li>
+</ol>
 <h3><b>
 2.) Create VPC Endpoint - </b></h3>In this section, you create an endpoint for S3 to learn a VPC endpoint. 
 In VPC Dashboard, select Endpoints. Click Create endpoint button. 
