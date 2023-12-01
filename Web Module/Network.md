@@ -48,11 +48,12 @@ Additional routing information for using the endpoint is automatically added to 
 
 <img width="938" alt="s3 endpoint 2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/f948b467-aa1e-4da1-bac8-52ca03c39487">
 
-NOTE:- VPC endpoints are communications within the AWS network and have the security and compliance advantage of being able to control traffic through the endpoints. 
-
-<li>You can also optimize the data processing cost if you transfer your data through a VPC endpoint rather than a NAT gateway.</li>
+<li>Confirm that the route to access Amazon S3 through the gateway endpoint has been automatically added to the private route table specified earlier.</li>
 
 <img width="672" alt="s3 endpoint 3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/3b069f5b-5b3f-40e6-9757-c95b71f8fdc8">
+
+NOTE:- VPC endpoints are communications within the AWS network and have the security and compliance advantage of being able to control traffic through the endpoints. 
+You can also optimize the data processing cost if you transfer your data through a VPC endpoint rather than a NAT gateway.</li>
 
 </p>
 </ol>
