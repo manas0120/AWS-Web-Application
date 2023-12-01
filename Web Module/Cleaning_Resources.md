@@ -12,10 +12,8 @@ Confirm by typing permanently delete in the box. Then click the Empty button.</l
 </ol>
 
 <h4>NOTE-  If Completed this workshop with your own account, it is strongly recommend to delete the resources and avoid incurring costs</h4>
-
-<h3> Delete Database</h3>
+<pre><h3> Delete Database</h3>
  <p>
-  <ol>
   1.After accessing to the Amazon RDS console, select DB Instances.
   2.By default, an Amazon RDS cluster has delete protection enabled to prevent accidental deletions. 
   To disable it, select the Cluster and click the Modify button.
@@ -32,7 +30,7 @@ Confirm by typing permanently delete in the box. Then click the Empty button.</l
   10.Uncheck the Take a final snapshot button, check the I acknowledge that automatic backups, 
   including system snapshots and point-in-time recovery, are no longer available when I delete an 
   instance button, and type delete me in the blank. Click Delete DB Cluster and the DB cluster will be deleted.
-</ol> </p>
+</p>
 <h3>Delete RDS Snapshot</h3>
   <p>
 11.To delete the snapshot of the DB Cluster created during the lab, select immersionday-snapshot and click the Delete snapshot button on the Actions menu.
