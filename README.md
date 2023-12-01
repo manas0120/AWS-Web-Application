@@ -9,7 +9,7 @@ Specifically, we will walk through the following topics:
 </pre>
 </h4>
 
-(NOTE-:
+NOTE-:
 <ol>
  <li>You will be Charged for NAT Gateway, Elastic IP and Database.</li>
  <li>If you don't want charge make sure to delete resources. </li>
