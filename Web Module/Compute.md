@@ -54,6 +54,8 @@ After the instance configuration is complete, you can check the Availability Zon
 
 <img width="552" alt="7" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/db25fe4f-e3f0-473a-99cc-1dc390f40769">
 
+<h2> IMPORTANT NOTE - In the database lab to be followed, connect to RDS using the IAM role granted to the web server. Therefore, refer to Accessing Linux instance using Session Manager  to assign IAM role to EC2 instance grant. - https://catalog.workshops.aws/general-immersionday/ko-KR/basic-modules/10-ec2/ec2-linux/3-ec2-1</h2>
+
 
 <h4><b>c. Create a custom AMI - </b></h4>
 In the EC2 console, select the instance that we made earlier in this lab, and click Actions > Image and templates > Create Image. 
