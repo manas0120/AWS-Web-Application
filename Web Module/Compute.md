@@ -80,21 +80,29 @@ NOTE - Custom AMI (Golden Image) creation has been completed for the auto scalin
 Architecture Configured till now - 
 <img width="626" alt="Ec2 Architecture with IG" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/2db11c8c-50d6-48bf-8aad-52f7601783c1">
 <h3>e. Lauch Application Load Balancer </h3>
-Using the network infrastructure created in the Network- Amazon VPC lab, we will deploy a web service that can 
-automatically scale out/in under load and ensure high availability. We use the web server AMI created in 
+Using the network infrastructure created in the Network- Amazon VPC lab, we will deploy a web service that can automatically scale out/in under load and ensure high availability. We use the web server AMI created in 
 the previous chapter and the network infrastructure named VPC-Lab. 
 <h3>f. Configure Application Load Balancer </h3>
 AWS Elastic Load Balancer supports three types of load balancers: Application Load Balancer, Network Load Balancer, and Classic Load Balancer. 
 In this lab, you will configure and set up the Application Load Balancer to handle load balancing HTTP requests. 
-From the EC2 Management Console in the left navigation panel, click Load Balancers under Load Balancing. 
-Then click Create Load Balancer. In the Select load balancer type, click the Create button under Application Load Balancer.
-Name the load balancer. In this case, name Name as Web-ALB. Leave the other settings at their default values. 
-Scrolling down a little bit, there is a section for selecting availability zones. 
-First, Select the VPC-Lab-vpc created previously. For Availability Zones select the 2 public subnets that were created previously. 
-This should be Public Subnet for ap-northeast-2a and Public Subnet C for us-east-1c. 
-In the Security groups section, click the Create new security group hyperlink. Enter web-ALB-SG as the security group name 
-and check the VPC information. Click the Add rule button and select HTTP as the Type and Anywhere-IPv4 as the Source. 
-And create a security group. 
+<ol>
+<li>From the EC2 Management Console in the left navigation panel, click Load Balancers under Load Balancing. Then click Create Load Balancer. In the Select load balancer type, click the Create button under Application Load Balancer.</li>
+
+<img width="317" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/ec1533ee-cbaf-4358-be84-e19fb4addf23">
+
+<li>Name the load balancer. In this case, name Name as Web-ALB. Leave the other settings at their default values. </li>
+
+<img width="374" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/4848dd25-0c43-41ca-8c31-4511c0a7ed9f">
+
+<li>Scrolling down a little bit, there is a section for selecting availability zones. First, Select the VPC-Lab-vpc created previously. For Availability Zones select the 2 public subnets that were created previously. 
+This should be Public Subnet for us-east-1a and Public Subnet C for us-east-1c. </li>
+
+<img width="378" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/c93aa10a-b745-44b2-b6be-7750d80410ca">
+
+<li>In the Security groups section, click the Create new security group hyperlink. Enter web-ALB-SG as the security group name, and check the VPC information. Click the Add rule button and select HTTP as the Type and Anywhere-IPv4 as the Source and create a security group.</li>
+
+
+
 Return to the load balancer page again, click the refresh button, and select the web-ALB-SG you just created. 
 Remove the default security group. 
 In Listeners and routing column, click Create target group. Put Web-TG for Target group name and check all settings 
