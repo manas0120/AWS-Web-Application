@@ -15,20 +15,46 @@ It is designed to make web-scale cloud computing easier for developers. Amazon E
 </ol></b></h5>
 <h4><b>
 a. Launch instance and connect to web service - </b></h4>
-In the AWS console search bar, type EC2  and select it. Then click EC2 Dashboard at the top of the left menu. 
-Press the Launch instance button and select Launch instance from the menu.  
-In Name, put the value Web server for custom AMI. And check the default setting in Amazon Machine Image below. 
-Select t2.micro in Instance Type.  
-For Key pair, choose Proceed without a key pair.  
+<ol>
+<li>In the AWS console search bar, type EC2  and select it. Then click EC2 Dashboard at the top of the left menu. Press the Launch instance button and select Launch instance from the menu.</li>
+<li>In Name, put the value Web server for custom AMI. And check the default setting in Amazon Machine Image below.</li>
+  
+<img width="427" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/0d4cda27-93e9-463e-8fd3-692fb71079f9">
+
+<li>Select t2.micro in Instance Type. For Key pair, choose Proceed without a key pair.  
 Click the Edit button in Network settings to set the space where EC2 will be located. 
-And choose the VPC-Lab-vpc created in the previous lab, and for the subnet, choose public subnet. Auto-assign public IP is set to Enable. 
-<h4><b>b. Create Security groups - </b></h4>To act as a network firewall. Security groups will specify the protocols and addresses you want to allow in your firewall policy. 
+And choose the VPC-Lab-vpc created in the previous lab, and for the subnet, choose public subnet.</li>
+
+<img width="409" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/26fc4866-29e7-407b-b17d-109d4ee3e299">
+
+<li>Auto-assign public IP is set to Enable.</li> 
+<h4><b>b. Create Security groups - </b></h4>
+<li>To act as a network firewall. Security groups will specify the protocols and addresses you want to allow in your firewall policy. 
 For the security group you are currently creating, this is the rule that applies to the EC2 that will be created. 
 After entering Multi-Tier in Security group name and Description, select Add Security group rule and set HTTP to Type.
-Also allow TCP/80 for Web Service by specifying it. Select My IP in the source. 
-All other values accept the default values, expand by clicking on the Advanced Details tab at the bottom of the screen. 
-Click the Meta Data version dropdown and select V2 only (token required) 
-Wait for the instance's Instance state result to be Running. Open a new web browser tab and enter the Public DNS or IPv4 Public IP of your EC2 instance in the URL address field. If the page is displayed as shown below, the web server instance is configured normally. 
+Also allow TCP/80 for Web Service by specifying it. Select My IP in the source.</li>
+
+<img width="326" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/53a781ea-2e84-4592-8d47-0cd088d5d9f0">
+
+<li>All other values accept the default values, expand by clicking on the Advanced Details tab at the bottom of the screen. </li>
+
+<img width="391" alt="4" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/014952f7-5517-45f8-b567-a52e64f04708">
+
+<li>Click the Meta Data version dropdown and select V2 only (token required)
+Information indicating that the instance creation is in progress is displayed on the screen.</li>
+
+<img width="320" alt="5" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/092ce1ed-b70d-4ee5-ae43-135788c50ba6">
+
+<li> You can view the list of EC2 instances by selecting View Instances in the lower right corner.</li>
+After the instance configuration is complete, you can check the Availability Zone in which the instance is running, and externally accessible IP and DNS information.</li>
+
+<img width="819" alt="6" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/297cc731-e07d-4ca2-a33e-8de99de54828">
+
+<li>Wait for the instance's Instance state result to be Running. Open a new web browser tab and enter the Public DNS or IPv4 Public IP of your EC2 instance in the URL address field. If the page is displayed as shown below, the web server instance is configured normally. </li>
+
+<img width="552" alt="7" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/db25fe4f-e3f0-473a-99cc-1dc390f40769">
+
+
 <h4><b>c. Create a custom AMI - </b></h4>
 In the EC2 console, select the instance that we made earlier in this lab, and click Actions > Image and templates > Create Image. 
 In the Create Image console, type as shown below and press Create image to create the custom image.   
