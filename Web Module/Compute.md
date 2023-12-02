@@ -1,19 +1,18 @@
 B. Compute - Amazon EC2 </b></h3>
 Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. 
-It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you 
-to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources 
-and lets you run on Amazon’s proven computing environment.
-<h3><b>EC2 Architecture - </b></h3>Auto Scaling Group to deploy web service instances to private subnets in VPC that we 
-created earlier in this network lab. This configures the highly available web services so that external users can access the Sample Web Page through the web.
+It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
+<h3><b>EC2 Architecture - </b></h3>Auto Scaling Group to deploy web service instances to private subnets in VPC that we created earlier in this network lab. This configures the highly available web services so that external users can access the Sample Web Page through the web.
 <img width="554" alt="EC2 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/05c12a41-1634-4b3c-a2c8-577a1306d72e">
 <h5><b>The following hands-on are to be done -:
-Launch web server instances and execute user data 
-Set up a security group 
-Create a custom Amazon Machine Image (AMI) 
-Launch an Application Load Balancer (ALB) 
-Configure a Launch Template 
-Configure an Auto Scaling Group 
-Test auto scaling and change manual settings</b></h5>
+<ol type="a">
+<li>Launch web server instances and execute user data.</li>
+<li>Set up a security group.</li> 
+<li>Create a custom Amazon Machine Image (AMI).</li>
+<li>Launch an Application Load Balancer (ALB).</li>
+<li>Configure a Launch Template.</li>
+<li>Configure an Auto Scaling Group.</li>
+<li>Test auto scaling and change manual settings.</li>
+</ol></b></h5>
 <h4><b>
 a. Launch instance and connect to web service - </b></h4>
 In the AWS console search bar, type EC2  and select it. Then click EC2 Dashboard at the top of the left menu. 
