@@ -54,21 +54,29 @@ After the instance configuration is complete, you can check the Availability Zon
 
 <img width="552" alt="7" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/db25fe4f-e3f0-473a-99cc-1dc390f40769">
 
-<h2> IMPORTANT NOTE - In the database lab to be followed, connect to RDS using the IAM role granted to the web server. Therefore, refer to Accessing Linux instance using Session Manager  to assign IAM role to EC2 instance grant. - https://catalog.workshops.aws/general-immersionday/ko-KR/basic-modules/10-ec2/ec2-linux/3-ec2-1</h2>
-
+<h2> IMPORTANT NOTE - In the database lab to be followed, connect to RDS using the IAM role granted to the web server - https://catalog.workshops.aws/general-immersionday/ko-KR/basic-modules/10-ec2/ec2-linux/3-ec2-1</h2>
+</ol>
 
 <h4><b>c. Create a custom AMI - </b></h4>
-In the EC2 console, select the instance that we made earlier in this lab, and click Actions > Image and templates > Create Image. 
-In the Create Image console, type as shown below and press Create image to create the custom image.   
-Verify in the console that the image creation request in completed.  
-In the left navigation panel, Click the AMIs button located under IMAGES. You can see that the Status of the AMI that you just created. 
-It will show either Pending or Available. 
+<ol>
+<li>In the EC2 console, select the instance that we made earlier in this lab, and click Actions > Image and templates > Create Image.</li> 
+<li>In the Create Image console, type as shown below and press Create image to create the custom image.</li>
+
+<img width="707" alt="8" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/054095fa-b54f-4d9f-9135-70c593ae59c5">
+
+<li>Verify in the console that the image creation request in completed.</li> 
+<li>In the left navigation panel, Click the AMIs button located under IMAGES. You can see that the Status of the AMI that you just created.
+It will show either Pending or Available. </li>
+
+<img width="796" alt="9" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/45e42788-35ff-4159-a965-abbae013998b">
+</ol>
 <h4><b>d. Terminate the instance </b></h4>
-Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. 
-Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, 
-we will use custom AMI to create a new web server.) 
+Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, we will use custom AMI to create a new web server.) 
 NOTE - Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, we will use custom AMI to create a new web server.)
 <h3>Reference to Golden AMI - https://medium.com/@chiragdarji/aws-golden-ami-e85a24f15f9c</h3>
+
+<img width="470" alt="10" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/c99a839d-e72e-41ef-9468-d841565b6040">
+
 Architecture Configured till now - 
 <img width="626" alt="Ec2 Architecture with IG" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/2db11c8c-50d6-48bf-8aad-52f7601783c1">
 <h3>e. Lauch Application Load Balancer </h3>
