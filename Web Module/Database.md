@@ -137,103 +137,111 @@ Write down the user name and password you entered when creating the database. An
  create a Policy that allows the web server to read a secret. 
  We will add this policy to the Role you previously assigned 
  to the web server.</h4>
-<h3> Allow the web service to access the Internet</h3>
+ <br>
+<h3> Allow the web service to access the secret</h3>
 <ol>
  <li>Sign in to the AWS Management Console and open the IAM console. 
   In the navigation pane, choose Policies, and then choose Create Policy.</li>
 <li>Choose the service. Type Secret Manager into the search box. Click Secret manager.</li>
 <li>Under Access Level, Click on the carat next to read anf then check the box by GetSecretValue</li>
+
+ <img width="698" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/df3cde6e-bebe-41a5-a3b3-43d54027c45a">
+
 <li>Click on the carat next to the resource. For this Lab, Sselect all Resources. Click Next: Tags.
 (NOTE: For the lab, we're allowing EC2 to access all secrets. 
 With a real workload, you should consider allowing access to specific secrets.)</li>
+
+<img width="685" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/dded8d34-1545-4eff-a59e-78f8c2c103d5">
+
 <li>Click Next: Review. On the Review Policy screen, give your 
  new policy the name ReadSecrets. Click Create policy. </li>
+
+<img width="713" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/5fa97116-f761-4ef4-8941-cdf38a0c4dec">
+
 <li>In the navigation pane, choose Roles and type SSMInstanceProfile 
 into the search box. This is the role you created previously 
 in Connect to your Linux instance using Session Manager. 
 Click SSMInstanceProfile.</li>
+
+<img width="761" alt="4" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/eab9027b-c0bf-4ef3-8627-ec545053786f">
+
 <li>Under Permission Policies, Attach Policies</li>
+
+<img width="656" alt="5" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/01525414-0c0d-447f-98fc-1c20e489cd6e">
+
 <li>Search for the policy you created called ReadSecrets. 
 Check the box and click Attach policy.</li>
+
+<img width="877" alt="6" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e1c48487-c03a-406b-96f5-762ddd847336">
+
 <li>Under Permissions policies, verify that AmazonSSMManagedInstanceCore
 and ReadSecrets are both listed.</li>
+
+<img width="752" alt="7" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/3b211238-3b3e-431a-9f9d-e0ce9316cc4a">
+
 </ol>
  <h3> Try Address Book</h3>
  <ol>
- <li>Access the [EC2 Console] (https://console.aws.amazon.com/ec2/v2/home?instanceState=running ) 
- window and click load balancer. After copying the DNS name of the load balancer 
- created in the compute lab, open a new tab in your browser and paste it.</li>
+ <li>Access the [EC2 Console] (https://console.aws.amazon.com/ec2/v2/home?instanceState=running ) window and click load balancer. After copying the DNS name of the load balancer. Created in the compute lab, open a new tab in your browser and paste it.</li>
+
 <li>After connecting to the web server, go to the RDS tab.</li>
-  <li>Now you can check the data in the database you created.</li>
- </ol>
- <h3>RDS Managment Features</h3>
- <h4>NOTE:- In multiple AZ deployments, Amazon RDS automatically provisions and maintains 
-  synchronous spare replicas in different availability zone. The default DB instance is 
-  synchronized from the availability zone to the spare replica to provide data redundancy.
-</h4>
-<h3> RDS FAILOVER Tests</h3>
-<h4>NOTE:- When multiple AZs are enabled, Amazon RDS automatically switches to a spare replica 
- in another availability zone if the DB instance has a planned or unplanned outage. The amount of time 
- that failover takes to complete depends on the database activity and other conditions when the default
- DB instance becomes unavailable. The time required for failover is typically 60-120 seconds. However, 
- if the transaction is large or the recovery process is complex, the time required for failover can be increased. 
- When failover is complete, the RDS console UI takes additional time to reflect in the new availability zone.
-</h4>
+
+<li>Now you can check the data in the database you created.</li>
+
+<img width="321" alt="8" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/df9347c0-42ba-4e01-a960-c419afce95a5">
+</ol>
+
+<h3>Architect Configured - </h3>
+
+<img width="347" alt="Aurora Db Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/6bc8925a-f020-4e6c-b3bd-0c50a79bdc3f">
+
+<br>
+
+<h3>RDS Managment Features</h3>
+<br><h4>NOTE:- In multiple AZ deployments, Amazon RDS automatically provisions and maintains synchronous spare replicas in different availability zone. The default DB instance is synchronized from the availability zone to the spare replica to provide data redundancy.</h4>
+<br><h3> RDS FAILOVER Tests</h3>
+<h4>NOTE:- When multiple AZs are enabled, Amazon RDS automatically switches to a spare replica in another availability zone if the DB instance has a planned or unplanned outage. The amount of time that failover takes to complete depends on the database activity and other conditions when the default
+DB instance becomes unavailable. The time required for failover is typically 60-120 seconds. However, if the transaction is large or the recovery process is complex, the time required for failover can be increased. 
+When failover is complete, the RDS console UI takes additional time to reflect in the new availability zone.
+</h4><br>
 <ol>
- <li>From the RDS management console, select Databases, select the instance that you want to proceed with the failover,
-  and click Failover in the task menu</li>
- <li>A message asking whether you're going to failover the rdscluster. Press the Failover button.</li>
- <li>The refresh button changes the status of rdscluster in the DB identifier to Failing-over.
-  In a few minutes, press the Refresh button to see Reader and Writer roles changed. The failover is complete.</li>
+<li>From the RDS management console, select Databases, select the instance that you want to proceed with the failover, and click Failover in the task menu</li>
+<img width="736" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/156cd37f-f820-4811-a548-c70b6483cbf9">
+
+<li>A message asking whether you're going to failover the rdscluster. Press the Failover button.</li>
+
+<li>The refresh button changes the status of rdscluster in the DB identifier to Failing-over.   In a few minutes, press the Refresh button to see Reader and Writer roles changed. The failover is complete.</li>
+
+<img width="737" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/52b84d3b-a45d-48ea-999c-73d6fad5e38d">
+
 </ol> 
-<h4> Create RDS Snapshot - Snapshot can be created at any frequency for backup to 
- database instances, and the database can be restored at any time based on the snapshots created.</h4>
+<h4> Create RDS Snapshot - Snapshot can be created at any frequency for backup to database instances, and the database can be restored at any time based on the snapshots created.</h4>
 <ol>
- <li>From the RDS management console, select Databases, and Select the instance on which you want to perform 
-  the snapshot operation. Select Actions > Take snapshot in the upper right corner.</li>
- <li>Type the name you want to use for the snapshot as immersionday-snapshot. 
-  Press the Take Snapshot button to complete the creation.</li>
- <li>From the left RDS menu, select Snapshots and check the creation status of the snapshot.
-  The state of the snapshot is the first creating state, and you can use that snapshot to restore 
-  the database when state become available. To restore, select the snapshot and select Actions to 
-  see what you can do with that snapshot. Restore Snapshot allows you to create RDS instances with
+ <li>From the RDS management console, select Databases, and Select the instance on which you want to perform the snapshot operation. Select Actions > Take snapshot in the upper right corner.</li>
+
+ <img width="736" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e2eacce4-ec8e-4fe4-b649-10dded0af12c">
+
+<li>Type the name you want to use for the snapshot as MultiTierWB-Snapshot 
+Press the Take Snapshot button to complete the creation.</li>
+<li>From the left RDS menu, select Snapshots and check the creation status of the snapshot. The state of the snapshot is the first creating state, and you can use that snapshot to restore the database when state become available. To restore, select the snapshot and select Actions to see what you can do with that snapshot. Restore Snapshot allows you to create RDS instances with
   the same data based on snapshots taken. This lab will not perform a restore.</li>
 </ol>
- <h3> Change RDS INSTANCE type</h3>
- <h4>Scale-Up/Scale-Down of RDS instances can be done very simply 
-  through the RDS Management Console.
+ 
+<h4>NOTE -: RDS can change the size of the instance at any time. However, the size of the database does not support shrink after scaling up.
 </h4>
- <ol>
-  <li>Let's change the specification of the RDS instance by selecting the instance you want 
-   to change and clicking Modify. </li>
-  <li>You can select the specification of the instance that you want to change by selecting 
-   the list box of instance classes. Let's choose db.r6g.large here.</li>
-  <li>Scroll to the bottom and select Continue to go to the page 
-   where you check the instance's current value and new value 
-   and select when to apply.</li>
-  <li>Select Apply immediately. In this case, RDS changes its instance immediately after perform a back up task. 
-   Then click Modify DB Instance. Depending on the type of instance and the amount of data to back up, 
-   it can take several minutes. Therefore, you should expect a certain amount of downtime for RDS services
-   (Redundant configuration minimizes downtime).</li>
-  <h4>NOTE:- In case of selecting Apply during the next scheduled maintenance window, make the change in the 
-   user's Maintenance Window, which is specified on a weekly basis.</h4>
-  <li>You can see that the status of the instance has changed to Modifying.</li>
-  <li>When you click refresh button again, you can see that the Writer instance has changed. 
-   This is because the instance you selected earlier for the size change was the Writer instance.
-   RDS minimizes downtime through failover before resizing. If you wait a moment, you will see that the 
-   change to Available status has been completed as shown below.</li>
-   </ol>
- <h4>RDS can change the size of the instance at any time. However, the size of the database does not support shrink after scaling up.
-</h4>
+
 <h3>Coneect RDS Aurora</h3>
- <h5>
-1. Create an EC2 instance with the AMI created in Public Subnet within the VPC-Lab. The networking option should allow Public IP.
-2. Changes the security group settings for RDS Aurora. Configure the newly created EC2 instance to accept security groups as sources.
-3. Log in to the EC2 instance you just created with SSH, and connect to RDS Aurora through the MySQL Client. 
-   The EC2 web server already has MySQL client installed during EC2 deployment.</h5>
+<h5>
+<ol>
+<li>Create an EC2 instance with the AMI created in Public Subnet within the VPC-Lab. The networking option should allow Public IP.</li>
+Changes the security group settings for RDS Aurora. Configure the newly created EC2 instance to accept security groups as sources.
+3. Log in to the EC2 instance you just created with SSH, and connect to RDS Aurora through the MySQL Client. The EC2 web server already has MySQL client installed during EC2 deployment.
+</ol>
+</h5>
  <h4>Once the setup is successful, you can connect to the CLI environment and perform mysql commands as shown below.</h4>
  <pre>
- $ ssh -i AWS-ImmersionDay-Lab.pem ec2-user@”EC2 Host FQDN or IP”
+ $ ssh -i AWS-MultiTierWeb![Uploading image.png…]()
+-Lab.pem ec2-user@”EC2 Host FQDN or IP”
 Last login: Sun Feb 18 14:41:59 2018 from 112.148.83.236
 
        __|  __|_  )
@@ -243,7 +251,7 @@ Last login: Sun Feb 18 14:41:59 2018 from 112.148.83.236
 https://aws.amazon.com/amazon-linux-ami/2017.09-release-notes/
 
 
-$ mysql -u awsuser -pawspassword -h awsdb.ccjlcjlrtga1.ap-northeast-2.rds.amazonaws.com
+$ mysql -u awsuser -pawspassword -h awsdb.ccjlcjlrtga1.us-east-1.rds.amazonaws.com
 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 34
@@ -257,7 +265,7 @@ mysql> show databases;
 | Database           |
 +--------------------+
 | information_schema |
-| immersionday       |
+| MultiTierWeb       |
 | mysql              |
 | performance_schema |
 +--------------------+
@@ -270,7 +278,7 @@ You can turn off this feature to get a quicker startup with -A
 Database changed
 mysql> show tables;
 +------------------------+
-| Tables_in_immersionday |
+| Tables_in_MultiTierWeb |
 +------------------------+
 | address                |
 +------------------------+
