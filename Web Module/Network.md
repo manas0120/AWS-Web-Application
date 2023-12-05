@@ -19,8 +19,8 @@ Select VPC, subnets, etc in Resource to create tab and change name tag to VPC-La
 
 <img width="932" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/2262bcb4-02f9-4006-8f4d-f93bade0ee75">
 
-<li>To design high availability architecture, we create 2 subnet space and <b>select 1a and 1c for Public Subnet and 1a and 1c for Private Subnet (Customize AZs)</b>. And set the CIDR value of the public subnet that can communicate directly with the Internet as shown in the screen below. 
-Set the CIDR value of the private subnet as shown in the screen. </li>
+<li>To design high availability architecture, we create 2 subnet space and <b>select 1a and 1c for Public Subnet and 1a and 1c for Private Subnet (Customize AZs)</b>. And set the CIDR value of the public subnet (us-east-1a : 10.0.10.0/24, us-east-1c : 10.0.20.0/24) that can communicate directly with the Internet as shown in the screen below. 
+Set the CIDR value of the private subnet (us-east-1a : 10.0.100.0/24, us-east-1c : 10.0.200.0/24). </li>
 
 <img width="264" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/1909eced-5187-49ec-bd46-86abac6abfd3">
 
