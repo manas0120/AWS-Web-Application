@@ -11,20 +11,22 @@ version of the existing custom AMI and update the Auto Scaling Group to use the 
 <img width="347" alt="Aurora Db Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8264335c-badc-443f-8362-44575560b6e4">
 <br>
 <h4>
+<ol>
 Following Hands-on for Database Section - 
-1. Create VPC security group
-2. Create RDS instance
-3. Connect RDS with Web App server
-4. Access RDS from EC2
-5. (option) RDS Management Features
-6. (option) Connect RDS Aurora
+<li>Create VPC security group</li>
+<li>Create RDS instance</li>
+<li>Connect RDS with Web App server</li>
+<li>Access RDS from EC2</li>
+<li>RDS Management Features</li>
+<li>(option) Connect RDS Aurora</li>
+</ol>
 </h4>
 <br>
 <h4>1. Create VPC Security group
 NOTE- The RDS service uses the same security model as EC2. The most common usage format is to provide data as a database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure
 it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied for proper access control.</h4>
 <br>
-<h4>In the previous Compute - Amazon EC2 lab, we created web server EC2 instances using Launch Template and Auto Scaling Group. These instances use Launch Template to apply the security group ASG-Web-Inst-SG . Using this information, we will create a security group so that only web server instances within the Auto Scaling Group can access RDS instances.</h4>
+<h4>In the previous Compute - Amazon EC2 lab, we created web server EC2 instances using Launch Template and Auto Scaling Group. These instances use Launch Template to apply the security group AutoScaling-Web-Inst-SG . Using this information, we will create a security group so that only web server instances within the Auto Scaling Group can access RDS instances.</h4>
 
 <ol>
 <li> On the left side of the VPC dashboard, select Security Groups and then select Create Security Group.</li>
