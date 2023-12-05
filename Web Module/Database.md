@@ -1,15 +1,16 @@
 <h3>C. DATABASE - AMAZON AURORA</h3>
- Among the many database options available on AWS, Amazon RDS(Relational Database Service) is a cloud-based 
- database service that is easy to configure and operate and easy to scale. Amazon RDS is cost-effective, easy
- to adjust capacity, and reduces time-consuming management tasks, 
- allowing users to focus more on their business and applications.
- In this database lab, we will deploy RDS Aurora instance in VPC-Lab and configure the web service(Apache + PHP) 
- in Auto Scaling Group to use RDS Aurora(MySQL). When the connection to the database is completed, create a new 
- version of the existing custom AMI and update the Auto Scaling Group to use the new version of AMI. In addtion,
- we conduct a test to add/modify/delete contacts in a simple address book stored in RDS' DB through the web browser.
- <h3>Architecture - </h3>
- <img width="347" alt="Aurora Db Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8264335c-badc-443f-8362-44575560b6e4">
- <h4>
+Among the many database options available on AWS, Amazon RDS(Relational Database Service) is a cloud-based database service that is easy to configure and operate and easy to scale. Amazon RDS is cost-effective, easy
+to adjust capacity, and reduces time-consuming management tasks, 
+allowing users to focus more on their business and applications.
+<br>
+In this database lab, we will deploy RDS Aurora instance in VPC-Lab and configure the web service(Apache + PHP), in Auto Scaling Group to use RDS Aurora(MySQL). When the connection to the database is completed, create a new 
+version of the existing custom AMI and update the Auto Scaling Group to use the new version of AMI. In addtion, we conduct a test to add/modify/delete contacts in a simple address book stored in RDS' DB through the web browser.
+
+<br><h3>Architecture - </h3>
+<br>
+<img width="347" alt="Aurora Db Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8264335c-badc-443f-8362-44575560b6e4">
+<br>
+<h4>
 Following Hands-on for Database Section - 
 1. Create VPC security group
 2. Create RDS instance
@@ -17,76 +18,117 @@ Following Hands-on for Database Section -
 4. Access RDS from EC2
 5. (option) RDS Management Features
 6. (option) Connect RDS Aurora
- </h4>
- <h4>1. Create VPC Security group
- NOTE- The RDS service uses the same security model as EC2. The most common usage format is to provide data as 
-  a database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure
-  it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied 
-  for proper access control.</h4>
-  <h4>The RDS service uses the same security model as EC2. The most common usage format is to provide data as a
-  database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure
-  it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied
-  for proper access control.</h4>
- <ol>
+</h4>
+<br>
+<h4>1. Create VPC Security group
+NOTE- The RDS service uses the same security model as EC2. The most common usage format is to provide data as a database server to an EC2 instance operating as an applicatiojn server within the same VPC, or to configure
+it to be accessible to the DB Application client outside of the VPC. The VPC Security Group must be applied for proper access control.</h4>
+<br>
+<h4>In the previous Compute - Amazon EC2 lab, we created web server EC2 instances using Launch Template and Auto Scaling Group. These instances use Launch Template to apply the security group ASG-Web-Inst-SG . Using this information, we will create a security group so that only web server instances within the Auto Scaling Group can access RDS instances.</h4>
+
+<ol>
 <li> On the left side of the VPC dashboard, select Security Groups and then select Create Security Group.</li>
+
 <li>Enter Security group name and Description as shown below. Choose the VPC that was created in the first lab. It should be named VPC-Lab.</li>
-<li>Scroll down to the Inbound rules column. Click Add rule to create a security group policy that allows access to RDS from the EC2 Web servers that you previously created through the Auto Scaling Group. Under Type, select MySQL/Aurora The port range should default to 3306. The protocol and port ranges are automatically specified. The Source type entry can specify the IP band (CIDR) that you want to allow acces to, or other security groups that the EC2 instances to access are already using. Select the security group(named ASG-Web-Inst-SG ) that is applied to the web instances of the Auto Scaling group in the Compute - Amazon EC2</li>
+
+<img width="654" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e3a79a51-c0d4-4dc3-9d5f-aa1965e73c0c">
+
+<li>Scroll down to the Inbound rules column. Click Add rule to create a security group policy that allows access to RDS from the EC2 Web servers that you previously created through the Auto Scaling Group. Under Type, select MySQL/Aurora The port range should default to 3306. The protocol and port ranges are automatically specified. The Source type entry can specify the IP band (CIDR) that you want to allow acces to, or other security groups that the EC2 instances to access are already using. Select the security group(named AutoScaling-Web-Inst-SG ) that is applied to the web instances of the Auto Scaling group in the Compute - Amazon EC2</li>
+
+<img width="880" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/da92b2f9-bcc5-469b-93c2-a03ab8cab7bd">
+
 <li>When settings are completed, click Create Security Group at the bottom of the list to create this security group.</li>
+
+<img width="897" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/93f5e6e0-7177-401b-aa4b-5f12695da910">
 </ol>
- <h3>2. Create RDS Instance </h3>
-        <h4>Create an instance of RDS Aurora (MySQL compatible).</h4>
+<br>
+<h3>2. Create RDS Instance </h3>
+<h4>Create an instance of RDS Aurora (MySQL compatible).</h4>
 <ol style="list-style-type:lower-alpha">
 <li>In the AWS Management console, go to the RDS (Relational Database Service)</li>
 <li>Select Create Database in dashboard to start creating a RDS instance.</li>
-<li>Select the RDS instances' database engine. In Amazon RDS, you can select the 
- database engine based on open source or commercial database engine. 
- In this lab, we will use Amazon Aurora with MySQL-compliant database engine. 
- Select Standard Create in the choose a database creation method section. 
- Set Engine type to Amazon Aurora, Set Edition to Amazon Aurora with MySQL compatibility, 
- Set Capacity type to Provisioned and Version to Aurora (MySQL 5.7) 2.10.2.></li>
-<li>Select Production in Template. Under Settings, we want to specify administrator 
- information for identifying the RDS instances. Enter the information as it appears below.</li>
-<li>Under DB instance size select Memory Optimized class. Under Availability & durability 
- select Create an Aurora Replica or reader node in a different AZ. Select db.r5.large for instance type.</li>
-<li>Set up network and security on the Connectivity page. Select the VPC-Lab that 
- you created earlier in the Virtual private cloud (VPC) and specify the subnet that 
- the RDS instance will be placed in, public access, and security groups. 
- Enter the information as it appears below.</li>
-<li>Scroll down and click Additional configuration. Set database options as shown below. 
- Be aware of the uppercase and lowercase letters of Initial database name.</li>
-<li>Subsequent items such as Backup, Entry, Backtrack, Monitoring, and Log exports all 
- accept the default values, and press Create database to create a database.</li>
+<li>Select the RDS instances' database engine. In Amazon RDS, you can select the database engine based on open source or commercial database engine. 
+In this lab, we will use Amazon Aurora with MySQL-compliant database engine. 
+Select Standard Create in the choose a database creation method section. 
+Set Engine type to Amazon Aurora, Set Edition to Amazon Aurora with MySQL compatibility, Set Capacity type to Provisioned and Version to Aurora (MySQL 5.7) 2.10.2.></li>
+ 
+<img width="550" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/dcd9f331-11ae-40c5-8f75-a91e7e56cae0">
+<br>
+<img width="460" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/5837c37b-c8b3-4c27-969a-714638a6310c">
+
+
+<li>Select Production in Template. Under Settings, we want to specify administrator information for identifying the RDS instances. Enter the information as it appears below.</li>
+
+<img width="381" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/769bb2e6-e2a0-45ce-af22-aef5da5ec191">
+
+<li>Under DB instance size select Memory Optimized class. Under Availability & durability select Create an Aurora Replica or reader node in a different AZ. Select db.r5.large for instance type.</li>
+
+<img width="438" alt="4" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/aaaf5309-9a20-45d4-8c1e-321ec69f2606">
+
+<li>Set up network and security on the Connectivity page. Select the VPC-Lab that you created earlier in the Virtual private cloud (VPC) and specify the subnet that the RDS instance will be placed in, public access, and security groups. Enter the information as it appears below.</li>
+
+<img width="430" alt="5 a" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/c1861ef5-4a0e-41b8-bc0d-efc1ed6e9194">
+<br>
+<img width="429" alt="5 b" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/7e4f12fd-d8bd-493d-804a-ca788eb0d0b0">
+
+<li>Scroll down and click Additional configuration. Set database options as shown below. Be aware of the uppercase and lowercase letters of Initial database name.</li>
+
+<img width="431" alt="6" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/61812d90-6c79-44b1-b543-5b0bd055474b">
+
+<li>Subsequent items such as Backup, Entry, Backtrack, Monitoring, and Log exports all accept the default values, and press Create database to create a database.</li>
 <li>A new RDS instance is now creating. This may take more than 5 minutes. 
- You can use an RDS instance when the DB instance's status changed to</li>
+ You can use an RDS instance when the DB instance's status changed to Available</li>
+
+<img width="726" alt="7" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/ea7ca7e7-9646-4f0d-a789-d5b18429387c"> 
 </ol>
+
 <h4><b>Services Configured so far </b></h4>
 <img width="521" alt="DB arch configured" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d279ffda-dc6d-43ce-a33f-b7758bc85ace">
- <h3>Connect RDS with Web App Server</h3>
- <h4>NOTE: The Web Server instance that you created in the previous computer 
-  lab contains code that generates a simple address book to RDS. 
-  The Endpoint URL of the RDS must be verified first in order to 
-  use the RDS on the EC2 Web Server.</h4>
-  <h3>Storing RDS Credentials in AWS Secrets Manager</h3>
+<br>
+
+<h3>Connect RDS with Web App Server</h3>
+<br>
+<h4>NOTE: The Web Server instance that you created in the previous computer 
+lab contains code that generates a simple address book to RDS. The Endpoint URL of the RDS must be verified first in order to use the RDS on the EC2 Web Server.</h4>
+<br>
+<h3>Storing RDS Credentials in AWS Secrets Manager</h3>
+<br>
 <h4>
 The web server we built includes sample code for our address book. 
-In this lab, you specify which database to use in the sample code and how to connect it. 
-We will store that information in AWS Secrets Manager.</h4>
-<h4>
-We will create a secret containing data connection information. Later, we will give the web server the appropriate permission to retrieve the secret.
+In this lab, you specify which database to use in the sample code and how to connect it. We will store that information in AWS Secrets Manager.
+We will create a secret containing data connection information. Later, we will give the web server the appropriate permission to retrieve the secret.</h4>
+
 <ol style="list-style-type:lower-alpha">
-<li>In the console window, open AWS Secrets Manager (https://console.aws.amazon.com/secretsmanager/ ) and
+<li>In the console window, open AWS Secrets Manager https://console.aws.amazon.com/secretsmanager/ ) and
 click the Store a new secret button.</li>
+
 <li>Under Secret Type, choose Credentials for Amazon RDS database. 
-Write down the user name and password you entered when creating the database. And under Database select the database you just created. 
-Then click the Next button.</li>
+Write down the user name and password you entered when creating the database. And under Database select the database you just created. Then click the Next button.</li>
+
+<img width="421" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e8d09f51-354a-4928-949c-6a0adacfaa5b">
+
 <li>Name your secret, mysecret. The sample code is written to ask for the secret by this specific name. Click Next.</li>
+
+<img width="723" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/3752ca0c-30a0-4d99-a2ca-5448b0e0f8fd">
+
 <li>Leave Secret rotation at default values. Click Next.</li>
+
+<img width="413" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d99c3c3f-b244-4d7a-9f43-c45dff423d7a">
+
 <li>Review your choices. Click Store.</li>
+
+<img width="484" alt="4" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/f2ed8248-0f1e-4e16-a4f7-4c6aac64860f">
+
 <li>You can check the list of secret values with the name mysecret as shown below.</li>
+
+<img width="917" alt="5" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/7ebe91dc-7dcf-426b-abfe-82fd61755eea">
+
 <li>Click mysecret hyperlink and find Secret value tab. And click Retrieve secret value button.</li>
-<li>Click Edit button, and check whether there is dbname
-and immersionday in key/value section. If they were not, 
-click Add button, fill out the value and click save button.</li>
+
+
+<li>Click Edit button, and check whether there is dbname and MultiTierWB in key/value section. If they were not, click Add button, fill out the value and click save button.</li>
+
+<img width="410" alt="6" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/24fe328a-f9ec-4799-9ab3-da12c032a195">
 </ol>
 </h4>
 <h3>Access RDS from EC2</h3>
