@@ -112,24 +112,26 @@ NOTE - By default, all objects in the S3 bucket are owner-only(Private). To dete
 <img width="492" alt="11" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/c178af5d-15f5-4140-8af3-53f2079c8d6f">
 </ol>
 
-<img width="464" alt="AWS EC2 S3 image" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/cb630570-6c7d-475e-bfea-7d43c9d66304">
-
-
 <h3>Enable Static Hosting</h3>
-<h4>A static website refers to a website that contains static content (HTML, image, video) 
-or client-side scripts (Javascript) on a web page. In contrast, dynamic websites require 
-server-side processing, including server-side scripts such as PHP, JSP, or ASP.NET. 
-Server-side scripting is not supported on Amazon S3. If you want to host a dynamic website, 
-you can use other services such as EC2 on AWS.
+<h4>A static website refers to a website that contains static content (HTML, image, video) or client-side scripts (Javascript) on a web page. In contrast, dynamic websites require server-side processing, including server-side scripts such as PHP, JSP, or ASP.NET. Server-side scripting is not supported on Amazon S3. If you want to host a dynamic website, you can use other services such as EC2 on AWS.
 </h4>
 <ol>
  <li>In the S3 console, select the bucket you just created, and 
  click the Properties tab. Scroll down and click the Edit button on 
  Static website hosting.</li>
- <li>Activate the static website hosting function and select the hosting type and 
- enter the index.html value in the Index document value, then click the save changes button.</li>
- <li>Click Bucket website endpoint created in the Static website hosting entry to access the static website.</li>
+ <li>Activate the static website hosting function and select the hosting type and enter the index.html value in the Index document value, then click the save changes button.</li>
+
+<img width="421" alt="12" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/21a66575-38da-4882-a0ba-6750781d06a2">
+
+<li>Click Bucket website endpoint created in the Static website hosting entry to access the static website.</li>
+
+<img width="272" alt="13" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/49bf26d2-d674-4e00-b5d8-853615c5c7a1">
+
+<li>This allows you to host static websites using Amazon S3.</li>
+<img width="1359" alt="gid-s3-24" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/fcc8f64e-db0a-46fd-95b9-d112fb5fb530">
 </ol> 
+
+
 <h3> Move Objects</h3>
 <ol>
 <li>Create a temporary bucket for moving objects between buckets 
