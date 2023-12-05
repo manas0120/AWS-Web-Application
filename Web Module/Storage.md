@@ -21,7 +21,7 @@ The order of this lab is as follows.
 <ol>
 <li>From the AWS Management Console, connect to S3 . Press Create bucket to create a bucket.</li>
 
-<li>Enter a unique bucket name in the Bucket name field. For this lab, type immersion-day-user_name, substituiting user-name with your name. All bucket names in Amazon S3 have to be unique and cannot be duplicated. 
+<li>Enter a unique bucket name in the Bucket name field. For this lab, type Bucket name: multi-tier-web-server. All bucket names in Amazon S3 have to be unique and cannot be duplicated. 
 In the Region drop-down box, specify the region to create the bucket. In this lab, select the region closest to you. The images will show the US-East(N.virginia) region. Object Ownership change to ACLs enabled. 
 Bucket settings for Block Public Access use default values, and select Create bucket in the lower right corner.</li>
 
