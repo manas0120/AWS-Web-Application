@@ -204,39 +204,38 @@ This is a scaling policy for adjusting the number of instances based on the CPU 
 
 <li>Now we are in the final stage of review. After checking the all settings, click the Create Auto Scaling Group. Button at the bottom right.
 Auto Scaling group has been created.</li>
-
-<img width="955" alt="14" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/39719971-95d9-470d-9ff2-be5e99dbf6e0">
-
 High available and automatically scales Load Architecture
 <img width="626" alt="HA Load Balancing arch" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/5681516e-194f-49a1-abed-a9f06ba56ec2">
 </ol>
 <h3> CHECK WEB SERVICE AND TEST </h3>
+<ol>
 <p>First, let's check whether you can access the website normally and whether the load balancer works, and then load the web server to see if Auto Scaling works.
-i. Check Web Service and load balancer
-To access through the Application Load Balancer configured for the web service, click the Load Balancers 
-menu in the EC2 console and select the Web-ALB you created earlier. Copy DNS name from the basic configuration.
-ii. Open a new tab in your web browser and paste the copied DNS name. You can see that web service 
-is working as shown below. For the figure below, you can see that the web instance placed in 
-us-east-1a is running this web page.
-iii. If you click the refresh button here, you can see that the host serving the web page has been 
-replaced with an instance of another availability zone area (us-east-1c) as shown below. 
-This is because routing algorithms in ALB target groups behave Round Robin by default.
-iv. Currently, in the the Auto Scaling group, scaling policy's baseline has been set to 30% CPU utilization for each instance.
-- If the average CPU utilization of an instance is less than 30%, Reduce the number of instances.
-- If the average CPU utilization of an instance is over 30%, Additional instances will be deployed, 
-load will be distributed, and adjusted to ensure that the average CPU utilization of the instances is 30%.
-v. Now, let's test load to see whether Auto Scaling works well. On the web page above, click the 
-LOAD TEST menu. The web page changes and the applied load is visible. Click on the logo at the 
-top left of the page to see that each instance is under load.
-<b> NOTE-: The principle that causes CPU load is that when the CPU Idle value is over 50, the PHP code 
-operates every five seconds to create, compress, and decompress arbitrary files. Traffic is distributed 
-and operated by the ALB, so the load is applied to other instances continuously.</b>
-vi. Enter Auto Scaling Groups from the left side menu of the EC2 console and click the Monitoring tab. 
-Under Enabled metrics, click EC2 and set the right time frame to 1 hour. If you wait for a few seconds, 
-you'll see the CPU Utilization (Percent) graph changes.
-vii. Wait for about 5 minutes (300 seconds) and click the Activity tab to see the additional EC2 instances deployed according to the scaling policy.
-viii. When you click on the Instance management tab, you can see that two additional instances have sprung up and a total of four are up and running.
-ix. If you use the ALB DNS that you copied earlier to access and refresh the web page, you can see that it is
-hosting the web page in two instances that were not there before. The current CPU load is 0% because it is
-a new instance. It can also be seen that each of them was created in a different availability zone. 
-If it's not 0%, it can look more than 100% because it's a constant load situation.
+ <li>
+Check Web Service and load balancer, To access through the Application Load Balancer configured for the web service, click the Load Balancers, menu in the EC2 console and select the Web-ALB you created earlier. Copy DNS name from the basic configuration.</li>
+
+  <img width="955" alt="14" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/39719971-95d9-470d-9ff2-be5e99dbf6e0">
+  
+<li>Open a new tab in your web browser and paste the copied DNS name. You can see that web service, is working as shown below. For the figure below, you can see that the web instance placed in us-east-1a is running this web page.
+
+<img width="488" alt="15 a" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/991da35a-f751-415c-9d2b-fb7ecfb7b7ba">
+
+  
+<li>If you click the refresh button here, you can see that the host serving the web page has been replaced with an instance of another availability zone area (us-east-1c) as shown below. This is because routing algorithms in ALB target groups behave Round Robin by default.</li>
+
+<img width="507" alt="15 b" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/20785fc0-e323-4313-8b3f-dff3ea37c0b6">
+
+<li>Currently, in the the Auto Scaling group, scaling policy's baseline has been set to 30% CPU utilization for each instance.</li>
+<ul>
+<li>If the average CPU utilization of an instance is less than 30%, Reduce the number of instances.</li>
+<li>If the average CPU utilization of an instance is over 30%, Additional instances will be deployed, load will be distributed, and adjusted to ensure that the average CPU utilization of the instances is 30%.</li>
+</ul>
+<li>Now, let's test load to see whether Auto Scaling works well. On the web page above, click the LOAD TEST menu. The web page changes and the applied load is visible. Click on the logo at the top left of the page to see that each instance is under load.</li>
+</ol>
+
+<b> NOTE-: The principle that causes CPU load is that when the CPU Idle value is over 50, the PHP code operates every five seconds to create, compress, and decompress arbitrary files. Traffic is distributed and operated by the ALB, so the load is applied to other instances continuously.</b>
+<ul>
+<li>Enter Auto Scaling Groups from the left side menu of the EC2 console and click the Monitoring tab. Under Enabled metrics, click EC2 and set the right time frame to 1 hour. If you wait for a few seconds, you'll see the CPU Utilization (Percent) graph changes.</li>
+<li>Wait for about 5 minutes (300 seconds) and click the Activity tab to see the additional EC2 instances deployed according to the scaling policy.</li>
+<li>When you click on the Instance management tab, you can see that two additional instances have sprung up and a total of four are up and running.</li>
+<li>If you use the ALB DNS that you copied earlier to access and refresh the web page, you can see that it is hosting the web page in two instances that were not there before. The current CPU load is 0% because it is a new instance. It can also be seen that each of them was created in a different availability zone. If it's not 0%, it can look more than 100% because it's a constant load situation.</li>
+</ul>
