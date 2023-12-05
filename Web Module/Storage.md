@@ -48,6 +48,7 @@ This lab hosts static websites through S3. The static website serves as a redire
 
 <br>
 <pre>
+<p>
  <html>
     <head>
         <meta charset="utf-8">
@@ -61,6 +62,7 @@ This lab hosts static websites through S3. The static website serves as a redire
         </center>
     </body>
 </html>
+</p>
 </pre>
 <br>
  
