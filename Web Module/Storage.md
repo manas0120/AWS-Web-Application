@@ -47,25 +47,7 @@ This lab hosts static websites through S3. The static website serves as a redire
 <img width="602" alt="S3 index file" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/1bf194fd-180d-4224-a7da-964d992376af">
 
 <br>
-<pre>
-<p>
- <html>
-    <head>
-        <meta charset="utf-8">
-        <title> Multi-Tier Web Server Lab </title>
-    </head>
-    <body>
-        <center>
-        <br>
-        <h2> Bucket Versioning Enabled </h2>
-        <img src="https://multi-tier-web-server.s3.amazonaws.com/aws.png" onclick="window.location="Web-ALB-734320521.us-east-1.elb.amazonaws.com"/>
-        </center>
-    </body>
-</html>
-</p>
-</pre>
-<br>
- 
+
 <li>Upload the aws.png file to S3. Click S3 Bucket that you just created</li>
 <li>Click the Upload button. Then click the Add files button. Select the pre-downloaded aws.png 
 file through File Explorer. Alternatively, place the file in Drag and Drop to the screen.</li>
