@@ -1,38 +1,69 @@
-<h3>D. Storage - Amazon S3</h3>
-<h4>Amazon Simple Storage Service (S3) provides a web service-based interface that simplifies data processing anytime, anywhere.
-Outline - This lab is designed to help users learn how to save, check, move, and delete data using S3. 
-You can also see the ability to host simple static web pages using S3's static website hosting functionality.
+<h3>D. Storage - Amazon S3</h3><br>
+<h4>Amazon Simple Storage Service (S3) provides a web service-based interface that simplifies data processing anytime, anywhere.<br>
+<b>Outline </b>- This lab is designed to help users learn how to save, check, move, and delete data using S3. You can also see the ability to host simple static web pages using S3's static website hosting functionality.
 </h4>
-<h3>Architecture</h3>
-<img width="522" alt="S3 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e67849bb-4ea3-4c75-8c67-a336830fdbd1">
+<h3>Architecture</h3><br>
+<img width="522" alt="S3 Architecture" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e67849bb-4ea3-4c75-8c67-a336830fdbd1"><br>
+<h4>ands-on Lab Sequence</h4>
+
+The order of this lab is as follows.
+<ul>
+<li>Create Bucket on S3</li>
+<li>Adding objects to buckets</li>
+<li>View objects</li>
+<li>Enable Static Web Site Hosting</li>
+<li>Move objects</li>
+<li>Enable Bucket versioning</li>
+<li>Deleting objects and buckets</li>
+</ul>
+<br>
 <h4>Create Bucket on S3</h4>
 <ol>
 <li>From the AWS Management Console, connect to S3 . Press Create bucket to create a bucket.</li>
-<li>Enter a unique bucket name in the Bucket name field. For this lab, type immersion-day-user_name, 
-substituiting user-name with your name. All bucket names in Amazon S3 have to be unique and cannot be duplicated. 
-In the Region drop-down box, specify the region to create the bucket. In this lab, select the region closest to you. 
-The images will show the Asia Pacific (Seoul) region. Object Ownership change to ACLs enabled. 
+
+<li>Enter a unique bucket name in the Bucket name field. For this lab, type immersion-day-user_name, substituiting user-name with your name. All bucket names in Amazon S3 have to be unique and cannot be duplicated. 
+In the Region drop-down box, specify the region to create the bucket. In this lab, select the region closest to you. The images will show the US-East(N.virginia) region. Object Ownership change to ACLs enabled. 
 Bucket settings for Block Public Access use default values, and select Create bucket in the lower right corner.</li>
+
+<img width="399" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/940e869f-ed8a-4e91-abba-8fea5221a93a">
+<br>
 <h4>Note - Bucket names must comply with these rules:
 Can contain lowercase letters, numbers, dots (.), and dashes (-).
 Must start with a number or letter.
 Can be specified from a minimum of 3 to a maximum of 255 characters in length.
-Cannot be specified in the format like the IP address (e.g., 265.255.5.4).</h4>
+Cannot be specified in the format like the IP address (e.g., 265.255.5.4).</h4><br>
 <li>A bucket has been created on Amazon S3.</li>
 </ol>
-
-NOTE - There are no costs incurred for creating bucket. You pay for storing objects in your S3 buckets. 
+<br>
+<h4>NOTE - There are no costs incurred for creating bucket. You pay for storing objects in your S3 buckets. 
 The rate you’re charged depends on the region you are using, your objects' size, how long you stored the 
-bjects during the month, and the storage class. There are also per-request fees. Click for more information.
-
+bjects during the month, and the storage class. There are also per-request fees. Click for more information.</h4>
+<br>
 <h4>Adding Objects to Bucket</h4>
-This lab hosts static websites through S3. The static website serves as a redirect to an instance 
-created by the VPC Lab when you click on a particular image. Therefore, prepare one image file, 
-one HTML file, and an ALB DNS name.
+This lab hosts static websites through S3. The static website serves as a redirect to an instance created by the VPC Lab when you click on a particular image. Therefore, prepare one image file, one HTML file, and an ALB DNS name.
 <ol>
 <li>Download the image file <a href="https://static.us-east-1.prod.workshops.aws/public/dd38a0a0-ae47-43f1-9065-f0bbcb15f684/static/common/s3_advanced_lab/aws.png">aws.png</a>and save it as aws.png.</li>
 <li>Write index.html using the source code below.</li>
 <img width="602" alt="S3 index file" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/1bf194fd-180d-4224-a7da-964d992376af">
+
+<br>
+<pre>
+ <html>
+    <head>
+        <meta charset="utf-8">
+        <title> Multi-Tier Web Server Lab </title>
+    </head>
+    <body>
+        <center>
+        <br>
+        <h2> Bucket Versioning Enabled </h2>
+        <img src="https://multi-tier-web-server.s3.amazonaws.com/aws.png" onclick="window.location="Web-ALB-734320521.us-east-1.elb.amazonaws.com"/>
+        </center>
+    </body>
+</html>
+</pre>
+<br>
+ 
 <li>Upload the aws.png file to S3. Click S3 Bucket that you just created</li>
 <li>Click the Upload button. Then click the Add files button. Select the pre-downloaded aws.png 
 file through File Explorer. Alternatively, place the file in Drag and Drop to the screen.</li>
