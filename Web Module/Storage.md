@@ -34,6 +34,9 @@ Can be specified from a minimum of 3 to a maximum of 255 characters in length.
 Cannot be specified in the format like the IP address (e.g., 265.255.5.4).</h4><br>
 <li>A bucket has been created on Amazon S3.</li>
 </ol>
+
+<img width="880" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/8160ef2e-5c9d-4f3d-a415-96adac84f3fe">
+
 <br>
 <h4>NOTE - There are no costs incurred for creating bucket. You pay for storing objects in your S3 buckets. 
 The rate you’re charged depends on the region you are using, your objects' size, how long you stored the 
@@ -49,32 +52,69 @@ This lab hosts static websites through S3. The static website serves as a redire
 <br>
 
 <li>Upload the aws.png file to S3. Click S3 Bucket that you just created</li>
-<li>Click the Upload button. Then click the Add files button. Select the pre-downloaded aws.png 
-file through File Explorer. Alternatively, place the file in Drag and Drop to the screen.</li>
-<li>Check the file information named aws.png to upload, 
-then click the Upload button at the bottom.</li>
+
+<li>Click the Upload button. Then click the Add files button. Select the pre-downloaded aws.png file through File Explorer. Alternatively, place the file in Drag and Drop to the screen.</li>
+
+<li>Check the file information named aws.png to upload, then click the Upload button at the bottom.</li>
+
 <li>Check the URL information to fill in the image URL in index.html file. 
 Select the uploaded aws.png file and copy the Object URL information from the details on the right.</li>
-<li>Paste Object URL into the image URL part of the index.html. 
-Then specify the ALB DNS Name of the load balancer created by Deploy auto scaling web service 
-to redirect to ALB when you click on the image.</li>
-<li>Upload the index.html file to S3 following the same instructions as you did to upload the image.</li> 
-</ol>
 
-NOTE - By default, all objects in the S3 bucket are owner-only(Private). To determine the object through 
-a URL of the same format as https://{Bucket}.s3.{region}.amazonaws.com/{Object}, you must grant Read permission for external users to read it. Alternatively, you can create a signature-based Signed URL that contains credentials for that object, allowing unauthorized users to access it temporarily.
+<img width="734" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d51b50b9-f1df-47d1-b26b-87a1dd419bf8">
+
+<li>Paste Object URL into the image URL part of the index.html. 
+Then specify the ALB DNS Name of the load balancer created by Deploy auto scaling web service to redirect to ALB when you click on the image.</li>
+
+<img width="671" alt="index code" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/0c6b61a8-1b4d-43e6-849a-5dfcf8533a4b">
+
+<li>Upload the index.html file to S3 following the same instructions as you did to upload the image.</li> 
+
+<img width="430" alt="5" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e8d4677c-bda5-4f52-ac62-c77018e09f14">
+
+<li>If you check the objects in your S3 bucket, you should see 2 files.</li>
+</ol>
 
 <ol>
-VIEW OBJECTS
+<h3>VIEW OBJECTS</h3>
+<li>In the Amazon S3 Console, please click the object you want to see. You can see detailed information about the object as shown below.</li>
+ 
+NOTE - By default, all objects in the S3 bucket are owner-only(Private). To determine the object through a URL of the same format as https://{Bucket}.s3.{region}.amazonaws.com/{Object}, you must grant Read permission for external users to read it. Alternatively, you can create a signature-based Signed URL that contains credentials for that object, allowing unauthorized users to access it temporarily.
+
+
+
 <li>select the Permissions tab in the bucket. To modify the application of Block public access (bucket settings), press the right Edit button.</li>
+
+<img width="439" alt="6" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/495f6aad-5f9c-4f2c-82a4-1a4161d70f30">
+
 <li>Uncheck box and press the Save changes button</li>
+
+<img width="425" alt="7" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d1745c1f-93fe-4977-be80-679907b4a9c7">
+
 <li>Enter confirm in the bucket's Edit Block public access pop up window and press the Confirm button.</li>
+
 <li>Click the Objects tab, select the uploaded files, click the Action drop-down button, and press the Make public button to set them to public.</li>
+
+<img width="894" alt="8" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/b71ef147-520f-4178-b200-048532a1f571">
+
 <li>When the confirmation window pops up, press the Make public button again to confirm.</li>
+
+
 <li>Return to the bucket page, select index.html, and click the Object URL link in the Show Details entry.</li>
+
+<img width="809" alt="9" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/0a83b66a-ddea-472e-baa7-9fb52239f087">
+
 <li>When you access the HTML object file object URL, the following screen is printed.</li>
+
+<img width="338" alt="10" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/a46b56bb-cff2-4faa-b1cb-c076df17417d">
+
+<li>When you click on an image, it is redirected to the instance's web page you created.</li>
+
+<img width="492" alt="11" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/c178af5d-15f5-4140-8af3-53f2079c8d6f">
 </ol>
+
 <img width="464" alt="AWS EC2 S3 image" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/cb630570-6c7d-475e-bfea-7d43c9d66304">
+
+
 <h3>Enable Static Hosting</h3>
 <h4>A static website refers to a website that contains static content (HTML, image, video) 
 or client-side scripts (Javascript) on a web page. In contrast, dynamic websites require 
