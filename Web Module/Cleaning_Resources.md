@@ -159,6 +159,7 @@ Select Load Balancers from the left menu. Then select the Web-ALB that we create
 <li>Select NAT gateways from the left menu and select VPC-Lab-nat-public you created during the lab. Click the Delete NAT gateway button on the Actions menu.</li>
 
  <img width="796" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e353ffbc-5a5b-4ff7-95be-7d2f86984b36">
+ 
 <li>Type delete in the blank and click the Delete button.</li>
 
 <h4>Delete an Elastic IP</h4>
@@ -173,23 +174,30 @@ If it says it is still associated with the NAT gateway and cannot be deleted, re
 </ol>
 
 <h4>Delete Security Group</h4>
-7.We're going to delete the Security Group you created during the lab. 
-Select Security Groups from the left menu. Select Immersion Day - Web Server and DB-SG first, 
-and then click the Delete security groups button on the Actions menu. 
-The reason for not deleting all security groups at once is that some security groups 
-reference other security groups in their inbound rules. A security group that is being 
-referenced cannot be deleted until the security group that is referencing it is deleted. 
+<ol>
+<li>We're going to delete the Security Group you created during the lab. 
+Select Security Groups from the left menu. Select Multi-Web-Inst SG and DB-SG first, and then click the Delete security groups button on the Actions menu. The reason for not deleting all security groups at once is that some security groups reference other security groups in their inbound rules. A security group that is being referenced cannot be deleted until the security group that is referencing it is deleted. 
 Therefore, delete the security groups in the following order: 
-Immersion Day - Web Server, DB-SG -> ASG-Web-Inst-SG -> web-ALB-SG.
-8.Type delete in the blank and click the Delete button.
-9.Select ASG-Web-Inst-SG and click the Delete security groups button on the Actions menu.
-10.Click the Delete button
-11.Select web-ALB-SG and click the Delete security groups button on the Actions menu.
-12.Click the Delete button.
+Multi-tier Web Server, DB-SG -> AutoScaling-Web-Inst-SG -> Web-ALB-SG</li>
+
+<img width="800" alt="SecurityGroup" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/c0c45e54-e2ed-4842-aee9-3ee2ceaf38f2">
+
+<li>Type delete in the blank and click the Delete button.</li>
+
+<li>Select AutoScaling-Web-Inst-SG and click the Delete security groups button on the Actions menu.</li>
+<li>Click the Delete button</li>
+<li>Select web-ALB-SG and click the Delete security groups button on the Actions menu.</li>
+<li>Click the Delete button.</li>
+</ol>
+ <img width="799" alt="SecurityGroup2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/2350b3e0-9872-4fa9-a415-d1269f494a0b">
+
 <h4>Delete a VPC</h4>
-13.Finally, select Your VPCs from the left menu, and 
-select the VPC-Lab-vpc that you created during the lab. 
-Click the Delete VPC button in the Actions menu.
-14.Type delete in the blank and click the Delete button.
-</p>
-</pre>
+<ol>
+<li>Finally, select Your VPCs from the left menu, and select the VPC-Lab-vpc that you created during the lab. Click the Delete VPC button in the Actions menu.</li>
+
+
+<li>Type delete in the blank and click the Delete button.</li>
+
+<img width="784" alt="VPC" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e2d6408f-d8e2-412e-9898-336ae44a059e">
+
+</ol>
