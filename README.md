@@ -12,7 +12,7 @@ Specifically, we will walk through the following topics:
 NOTE-:
 <ol>
  <li>You will be Charged for NAT Gateway, Elastic IP and Database.</li>
- <li>If you don't want charge make sure to delete resources. </li>
+ <li>If you don't want some additional charges, make sure to delete the resources. </li>
  <li>While Creating Resources follow above sequence, in Web Module Folder.
 </li>
 </ol>
