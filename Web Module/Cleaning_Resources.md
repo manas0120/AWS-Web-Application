@@ -59,57 +59,91 @@ Confirm by typing permanently delete in the box. Then click the Empty button.</l
 
 
 <h3>Delete RDS Snapshot</h3>
- <p>
-11.To delete the snapshot of the DB Cluster created during the lab, select immersionday-snapshot and click the Delete snapshot button on the Actions menu.
-12.Click Delete Button.
-</p>
+<ol>
+<li>To delete the snapshot of the DB Cluster created during the lab, select immersionday-snapshot and click the Delete snapshot button on the Actions menu.</li>
+
+<li>Click Delete Button.</li>
+
+<img width="770" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/b525c849-f383-40c2-a40f-ec8a4c495b85">
+</ol>
+
 <h3>Delete AWS Secret Manager</h3>
-<p>
-1.We're going to delete the secret that stored a RDS credential during the lab. 
-Type Secrets Manager in the AWS console search bar and then select it.
-2.Select mysecret.
-3.Click Delete Secret on the Action menu.
-4.To prevent accidental deletion of secrets, AWS Secrets Manager has a deletion wait time of minimum 
-7 days and maximum 30 days. Enter the minimum time of 7 days and press the Schedule deletion button.
-</p>
+<ol>
+<li>We're going to delete the secret that stored a RDS credential during the lab. Type Secrets Manager in the AWS console search bar and then select it.</li>
+
+<li>Select mysecret.</li>
+
+<li>Click Delete Secret on the Action menu.</li>
+
+<img width="865" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/c233ed17-6343-4307-b82a-b17106b9466e">
+
+<li>To prevent accidental deletion of secrets, AWS Secrets Manager has a deletion wait time of minimum 7 days and maximum 30 days. Enter the minimum time of 7 days and press the Schedule deletion button.</li>
+
+<img width="333" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/15d2688b-6736-4497-9bfe-15ae14fce154">
+</ol>
+
 <h3>Compute</h3>
-<p>
-1.We're going to delete the Auto Scaling Group that we used during the lab. 
-Type EC2 in the AWS Console search bar and select it. Select Auto Scaling Groups from the left menu. 
-Select the Web-ASG that we created in the lab and click the Delete button on the Actions menu.
-2.Type Delete, click Delete Button.
-</p>
+<ol>
+<li>We're going to delete the Auto Scaling Group that we used during the lab. Type EC2 in the AWS Console search bar and select it. Select Auto Scaling Groups from the left menu. Select the Web-ASG that we created in the lab and click the Delete button on the Actions menu.</li>
+
+ <li>Type Delete, click Delete Button.</li>
+
+<img width="765" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/a8a2f25f-8849-42da-9863-8ee778023181">
+</ol>
+
 <h4>Delete Application Load Balancer</h4>
-<p>
-3.Next, we're going to delete the Application Load Balancers. 
-Select Load Balancers from the left menu. Then select the Web-ALB that we created in the lab and 
-click the Delete load balancer button in the Actions menu.
-4.Type confirm in the blank and click the Delete button.
+<ol>
+<li>Next, we're going to delete the Application Load Balancers. 
+Select Load Balancers from the left menu. Then select the Web-ALB that we created in the lab and click the Delete load balancer button in the Actions menu.</li>
+
+ <img width="779" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/1d82e3f4-ba48-4200-8877-df05caf347c4">
+
+<li>Type confirm in the blank and click the Delete button.</li>
+</ol>
+
+
 <h4>Delete a Target Group</h4>
- 5.We're going to delete the Target Group we created when we created the Application Load Balancer. 
- Select Target Groups from the left menu. Select the Target Group we created in the lab, web-TG, and 
- click the Delete button on the Actions menu.
- 6.Click the Yes, delete button.
- <h4>Delete EC2 AMIs</h4>
- 7.Select AMIs from the left menu. Select the AMI named Web Server v1 that you created in the lab. 
- Click the Deregister AMI button on the Actions
- 8.Click the Deregister AMI button.
- <h4>Delete EC2 Snapshots</h4>
- 9.You've just deleted an AMI, but this action doesn't automatically remove the associated snapshot. 
- So you need to remove it manually. From the left menu, choose Snapshots. 
- Be sure to note the snapshot's creation date. Then, select the snapshot you created in the lab, 
- and click the Delete snapshot button on the Actions menu.
- 10.Click Delete Button.
- 11.Select Launch Templates from the left menu. Select the template named Web that you created in the lab. 
- Click the Delete template button on the Actions menu.
- 12.Type Delete in the blank and click the Delete button.
+<ol>
+<li>We're going to delete the Target Group we created when we created the Application Load Balancer. Select Target Groups from the left menu. Select the Target Group we created in the lab, web-TG, and click the Delete button on the Actions menu.</li>
+
+<img width="794" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/785343ff-e060-4dc9-ba8a-7e516f96cf2b">
+
+<li>Click the Yes, delete button.</li>
+</ol>
+
+<h4>Delete EC2 AMIs</h4>
+<ol>
+<li>Select AMIs from the left menu. Select the AMI named Web Server v1 that you created in the lab.  Click the Deregister AMI button on the Actions menu.</li>
+
+<img width="791" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/a217b44b-44db-4217-9121-0631f1c2a92f">
+
+<li>Click the Deregister AMI button.</li>
+
+<img width="338" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/dc1c761b-3e4c-4e52-a3c0-dad7f09468af">
+</ol>
+
+<h4>Delete EC2 Snapshots</h4>
+<ol>
+ <li>You've just deleted an AMI, but this action doesn't automatically remove the associated snapshot.  So you need to remove it manually. From the left menu, choose Snapshots.  Be sure to note the snapshot's creation date. Then, select the snapshot you created in the lab,  and click the Delete snapshot button on the Actions menu.</li>
+
+ <img width="806" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e153f934-c0aa-4b80-9bc6-8ff5aea032f7">
+
+<li>Click Delete Button.</li>
+
+<li>Select Launch Templates from the left menu. Select the template named Web that you created in the lab.  Click the Delete template button on the Actions menu.</li>
+
+<img width="788" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/1409abc7-2bb0-4447-bb36-e5fe67399b7d">
+
+<li>Type Delete in the blank and click the Delete button.</li>
+</ol>
+
 <h4>Delete an EC2 instance</h4>
-13.If you went through the (Optional) Connect RDS Aurora section during the database lab, 
-you need to delete the EC2 instance you created in the lab. Select Instances from the left menu. 
-Select the EC2 instance you created during the lab, and 
-click the Terminate instance button on the Instance state menu.
-14. Click Terminate.
-</p>
+
+<li>If you went through the (Optional) Connect RDS Aurora section during the database lab, you need to delete the EC2 instance you created in the lab. Select Instances from the left menu. </li>
+<li>Select the EC2 instance you created during the lab, and click the Terminate instance button on the Instance state menu.</li>
+<li> Click Terminate.</li>
+
+
 <h3>Network</h3>
 <p>
 <h4>Delete VPC</h4>
