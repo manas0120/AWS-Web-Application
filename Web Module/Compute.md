@@ -70,8 +70,9 @@ After the instance configuration is complete, you can check the Availability Zon
 <li>In the left navigation panel, Click the AMIs button located under IMAGES. You can see that the Status of the AMI that you just created.
 It will show either Pending or Available. </li>
 
-<img width="796" alt="9" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/45e42788-35ff-4159-a965-abbae013998b">
-</ol>
+
+</ol><img width="796" alt="9" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/a0a76082-e772-41c5-9c75-4c7ef834110b">
+
 <h4><b>d. Terminate the instance </b></h4>
 Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, we will use custom AMI to create a new web server.) 
 NOTE - Custom AMI (Golden Image) creation has been completed for the auto scaling by using the EC2 instance you just created. Therefore, the EC2 instance currently running is no longer needed, so let's try to terminate it. ( In Deploy auto scaling web service, we will use custom AMI to create a new web server.)
