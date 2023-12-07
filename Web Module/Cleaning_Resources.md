@@ -1,34 +1,63 @@
 <h3>Clean up Resources</h3>
+<h4>NOTE-  If Completed this workshop with your own account, it is strongly recommend to delete the resources and avoid incurring costs</h4>
+<br>
+
 <h4>Delecting Objects and Buckets</h4>
 <ol>
-<li>In the Amazon S3 Console, select the Bucket that you want to delete. Then click Delete. 
-A dialog box appears for deletion.</li>
-<li>There is a warning that buckets cannot be deleted because they are not empty. 
-Select empty bucket configuration to empty buckets.</li>
+<li>In the Amazon S3 Console, select the Bucket that you want to delete. Then click Delete. A dialog box appears for deletion.</li>
+
+ <img width="899" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/0b03ffee-7402-41eb-b947-e94b068386e3">
+
+<li>There is a warning that buckets cannot be deleted because they are not empty. Select empty bucket configuration to empty buckets.</li>
+
+<img width="497" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/4d121286-8cca-494d-8410-73b601ec4f89">
+
 <li>Empty bucket performs a one-time deletion of all objects in the bucket. 
 Confirm by typing permanently delete in the box. Then click the Empty button.</li>
+
 <li>Now the bucket is empty. Perform task 1 again. Enter a bucket name and press the Delete bucket button.</li>
 </ol>
-<h4>NOTE-  If Completed this workshop with your own account, it is strongly recommend to delete the resources and avoid incurring costs</h4>
-<pre><h3> Delete Database</h3>
- <p>
-  1.After accessing to the Amazon RDS console, select DB Instances.
-  2.By default, an Amazon RDS cluster has delete protection enabled to prevent accidental deletions. 
-  To disable it, select the Cluster and click the Modify button.
-  3.Uncheck the Enable deletion protection button and click the Continue button. 
-  4.For immediate deletion, select Apply immediately and click the Modify cluster button.
-  5.In order to delete a DB Cluster, you must first delete the DB instances included in the cluster. 
-  They can be deleted in any order, but we will delete the Writer instance first.
-  Select the Writer instance, and click the Delete button on the Actions menu.
-  6.Type delete me in the blank and click the Delete button.
-  7.This time, we will delete the Reader instance. Select the Reader instance and
-  click the Delete button on the Actions menu.
-  8.Type delete me in the blank and click the Delete button.
-  9.Lastly, we will delete the DB Cluster. Click the Delete button on the Actions menu.
-  10.Uncheck the Take a final snapshot button, check the I acknowledge that automatic backups, 
-  including system snapshots and point-in-time recovery, are no longer available when I delete an 
-  instance button, and type delete me in the blank. Click Delete DB Cluster and the DB cluster will be deleted.
-</p>
+
+<img width="479" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/f265aed5-4910-4d7c-8815-6682bfae3a65">
+
+<h3> Delete Database</h3>
+<ol>
+<li>After accessing to the Amazon RDS console, select DB Instances.</li>
+
+ <img width="662" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/af00aca1-534a-4087-8b94-4f954b19a2b3">
+ 
+<li>By default, an Amazon RDS cluster has delete protection enabled to prevent accidental deletions. To disable it, select the Cluster and click the Modify button.</li>
+
+<img width="736" alt="2" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/444bb673-5e65-4cb1-a0dc-2fa993116e17">
+
+<li>Uncheck the Enable deletion protection button and click the Continue button. </li>
+
+<img width="469" alt="3" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/85a8d84b-d5b1-4ccb-ac83-5a351561f843">
+
+<li>For immediate deletion, select Apply immediately and click the Modify cluster button.</li>
+
+<img width="401" alt="4" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/4084fa9b-ca90-4657-b4cf-1d01dce74114">
+
+<li>In order to delete a DB Cluster, you must first delete the DB instances included in the cluster. They can be deleted in any order, but we will delete the Writer instance first. Select the Writer instance, and click the Delete button on the Actions menu.
+
+<li>Type delete me in the blank and click the Delete button.</li>
+
+<li>This time, we will delete the Reader instance. Select the Reader instance and click the Delete button on the Actions menu.</li>
+
+<li>Type delete me in the blank and click the Delete button.</li>
+
+<li>Lastly, we will delete the DB Cluster. Click the Delete button on the Actions menu.</li>
+
+<img width="753" alt="5" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/9ccdee1e-a9d8-4923-96e1-f2bee1d49a3b">
+
+<li>Uncheck the Take a final snapshot button, check the I acknowledge that automatic backups, including system snapshots and point-in-time recovery, are no longer available when I delete an instance button, and type delete me in the blank. Click Delete DB Cluster and the DB cluster will be deleted.
+
+<img width="424" alt="8" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/ad1e1651-5f06-4315-9bcd-ca38995b9fc4">
+
+</li>
+</ol>
+
+
 <h3>Delete RDS Snapshot</h3>
  <p>
 11.To delete the snapshot of the DB Cluster created during the lab, select immersionday-snapshot and click the Delete snapshot button on the Actions menu.
