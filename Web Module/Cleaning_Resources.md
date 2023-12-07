@@ -145,24 +145,33 @@ Select Load Balancers from the left menu. Then select the Web-ALB that we create
 
 
 <h3>Network</h3>
-<p>
+<br>
 <h4>Delete VPC</h4>
-1. Type VPC in the AWS Console search bar and select it. 
-Select Endpoints from the left menu. Select S3 endpoint, 
-the endpoint you created in the lab, and click the 
-Delete VPC endpoints button on the Action Menu.
-2.Type delete in the blank, and click the Delete button.
+<li>Type VPC in the AWS Console search bar and select it. Select Endpoints from the left menu. Select S3 endpoint, the endpoint you created in the lab, and click the Delete VPC endpoints button on the Action Menu.</li>
+
+<img width="784" alt="VPC" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/85920afd-d0d3-4c37-911d-ff4e454e4d8e">
+
+<li>Type delete in the blank, and click the Delete button.</li>
+</ol>
+
 <h4>Delete NAT Gateway</h4>
-3.Select NAT gateways from the left menu and select VPC-Lab-nat-public you created during the lab. Click the Delete NAT gateway button on the Actions menu.
-4.Type delete in the blank and click the Delete button.
+<ol>
+<li>Select NAT gateways from the left menu and select VPC-Lab-nat-public you created during the lab. Click the Delete NAT gateway button on the Actions menu.</li>
+
+ <img width="796" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e353ffbc-5a5b-4ff7-95be-7d2f86984b36">
+<li>Type delete in the blank and click the Delete button.</li>
+
 <h4>Delete an Elastic IP</h4>
-5.You've just deleted the NAT gateway, but this action doesn't automatically 
-delete the Elastic IP that the NAT gateway used, so you need to remove it manually. 
-Select Elastic IPs from the left menu, and select VPC-Lab-eip-ap-northeast-2a. 
+<li>You've just deleted the NAT gateway, but this action doesn't automatically delete the Elastic IP that the NAT gateway used, so you need to remove it manually. Select Elastic IPs from the left menu, and select VPC-Lab-eip-us-east-1a. 
 (The name after VPC-Lab-eip may vary depending on your region.) 
 Click the Release Elastic IP addresses button on the Actions menu. 
-If it says it is still associated with the NAT gateway and cannot be deleted, refresh the webpage and try again.
-6.Click Release Button.
+If it says it is still associated with the NAT gateway and cannot be deleted, refresh the webpage and try again.</li>
+
+<img width="806" alt="Elastic IP" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/ea0f1309-0e7d-453a-8f17-aa0a8593f14e">
+
+<li>Click Release Button.</li>
+</ol>
+
 <h4>Delete Security Group</h4>
 7.We're going to delete the Security Group you created during the lab. 
 Select Security Groups from the left menu. Select Immersion Day - Web Server and DB-SG first, 
