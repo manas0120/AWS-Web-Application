@@ -149,7 +149,7 @@ Select Load Balancers from the left menu. Then select the Web-ALB that we create
 <h4>Delete VPC</h4>
 <li>Type VPC in the AWS Console search bar and select it. Select Endpoints from the left menu. Select S3 endpoint, the endpoint you created in the lab, and click the Delete VPC endpoints button on the Action Menu.</li>
 
-<img width="784" alt="VPC" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/85920afd-d0d3-4c37-911d-ff4e454e4d8e">
+<img width="796" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/b2499cc4-50bf-445a-9972-3d8c20302ab7">
 
 <li>Type delete in the blank, and click the Delete button.</li>
 </ol>
@@ -158,7 +158,8 @@ Select Load Balancers from the left menu. Then select the Web-ALB that we create
 <ol>
 <li>Select NAT gateways from the left menu and select VPC-Lab-nat-public you created during the lab. Click the Delete NAT gateway button on the Actions menu.</li>
 
- <img width="796" alt="1" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/e353ffbc-5a5b-4ff7-95be-7d2f86984b36">
+<img width="797" alt="2 Natgateway" src="https://github.com/manas0120/Highly-Available-Multi-Tier-Web-Application/assets/60257363/d0915ae8-588c-495b-ad29-5d8153aaf43b">
+
  
 <li>Type delete in the blank and click the Delete button.</li>
 
